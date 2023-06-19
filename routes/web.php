@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/list-desa', [HomeController::class, 'listDesa'])->name('list_desa');
+Route::get('/list-jadwal', [HomeController::class, 'listJadwal'])->name('list_jadwal');
+// Route::get('/list-desa', [HomeController::class, 'listDesa'])->name('list_desa');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');

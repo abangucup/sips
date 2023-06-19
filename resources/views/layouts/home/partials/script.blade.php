@@ -1,6 +1,5 @@
 <script src="{{ asset('home/assets/fe/js/jquery-5.js') }}"></script>
 <script src="{{ asset('home/assets/fe/js/plugins.js') }}"></script>
-<script src="{{ asset('home/assets/custom/datatable/datatables.min.js') }}"></script>
 <!--Template functions-->
 <script src="{{ asset('home/assets/fe/js/functions.js') }}"></script>
 <!--Particles-->

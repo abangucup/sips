@@ -8,8 +8,6 @@
                     <span>SIPS</span>
                 </a>
             </div>
-            <!--End: Logo-->
-
 
             <!--Navigation Resposnive Trigger-->
             <div id="mainMenu-trigger">
@@ -20,11 +18,16 @@
                 <div class="container">
                     <nav>
                         <ul>
-                            <li class=""><a href="index.html">Beranda</a>
+                            <li><a href="{{ route('home') }}"
+                                    class="{{ Request::is('/') ? 'bg-primary' : '' }}">Beranda</a>
                             </li>
-                            <li class=""><a href="portal/doc/peraturan">Jadwal</a>
+                            <li><a href="{{ route('list_desa') }}"
+                                    class="{{ Request::is('list-desa') ? 'bg-primary' : '' }}">Desa</a>
                             </li>
-                            <li><a href="{{ route('login') }}" class="btn btn-primary">Masuk</a></li>
+                            <li class="mr-sm-4 pb-4"><a href="{{ route('list_jadwal') }}"
+                                    class="{{ Request::is('list-jadwal') ? 'bg-primary' : '' }}">Jadwal</a>
+                            </li>
+                            <li class="ml-sm-5"><a href="{{ route('login') }}" class="btn btn-primary">Masuk</a></li>
                         </ul>
                     </nav>
                 </div>

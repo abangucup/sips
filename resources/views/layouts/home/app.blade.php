@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
 
     @include('layouts.home.partials.style')
+    @stack('style')
 </head>
 
 <body>
@@ -35,6 +36,8 @@
     </div>
 
     @include('layouts.home.partials.script')
+
+    @stack('script')
 </body>
 
 </html>
