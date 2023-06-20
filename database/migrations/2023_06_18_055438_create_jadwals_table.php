@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kenderaan_id')->constrained();
+            $table->foreignId('kenderaan_id')->constrained()->onDelete('cascade');
             $table->foreignId('hari_id')->constrained();
             $table->foreignId('lokasi_id')->constrained();
             $table->timestamps();
