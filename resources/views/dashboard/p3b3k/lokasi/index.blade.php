@@ -1,53 +1,56 @@
 @extends('layouts.dashboard.app')
 
-@section('title', 'Data Desa')
+@section('title', 'Data Lokasi')
 
 @section('content')
 <div class="row align-items-center mb-2">
     <div class="col">
-        <h2 class="mb-2 page-title">Data Desa</h2>
-        <p class="card-text">List data desa yang ada di sistem SIPS</p>
+        <h2 class="mb-2 page-title">Data Lokasi</h2>
+        <p class="card-text">List data lokasi yang ada di sistem SIPS</p>
     </div>
     <div class="col-auto">
         <div class="form-group">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahDesa">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahlokasi">
                 <i class="fe fe-plus-circle fe-8"></i>
-                <span class="web-only">Tambah Desa</span>
+                <span class="web-only">Tambah Lokasi</span>
             </button>
         </div>
     </div>
 </div>
 
 {{-- Modal Tambah --}}
-<div class="modal fade" id="tambahDesa" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
+<div class="modal fade" id="tambahlokasi" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="defaultModalLabel">Tambah Data Desa</h5>
+                <h5 class="modal-title" id="defaultModalLabel">Tambah Data Lokasi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('desa.store') }}" method="POST">
+                <form action="{{ route('lokasi.store') }}" method="POST">
                     @csrf
                     <div class="form-group row">
-                        <label for="namaDesa" class="col-sm-3 col-form-label">Nama Desa</label>
+                        <label for="desa" class="col-sm-3 col-form-label">Desa</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="namaDesa" placeholder="Nama Desa"
-                                name="nama_desa" required>
+                            <select name="desa" class="form-control" id="desa" required>
+                                @foreach ($desas as $desa)
+                                <option value="{{ $desa->id }}">{{ $desa->nama_desa }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="alamatDesa" class="col-sm-3 col-form-label">Alamat Desa</label>
+                        <label for="lokasi" class="col-sm-3 col-form-label">Lokasi</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="alamatDesa" placeholder="Alamat Desa"
-                                name="alamat_desa" required>
+                            <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="nama_lokasi"
+                                required>
                         </div>
                     </div>
                     <div class="form-group mt-4 mb-2 float-right">
-                        <button type="submit" class="btn btn-primary">Tambah Desa</button>
+                        <button type="submit" class="btn btn-primary">Tambah Lokasi</button>
                     </div>
                 </form>
             </div>
@@ -66,33 +69,29 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kode</th>
-                            <th>Nama Desa</th>
-                            <th>Alamat Desa</th>
-                            <th>Total Lokasi</th>
+                            <th>Desa</th>
+                            <th>Lokasi / Tempat Pengangkutan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($desas as $desa)
+                        @foreach ($lokasis as $lokasi)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $desa->kode }}</td>
-                            <td>{{ $desa->nama_desa }}</td>
-                            <td>{{ $desa->alamat_desa }}</td>
-                            <td>{{ $desa->lokasi_count }}</td>
+                            <td>{{ $lokasi->desa->nama_desa }}</td>
+                            <td>{{ $lokasi->nama_lokasi }}</td>
                             <td>
                                 <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" data-toggle="modal"
-                                        data-target="#editDesa-{{ $desa->id }}">
+                                        data-target="#editlokasi-{{ $lokasi->id }}">
                                         <i class="fe fe-edit fe-16"></i>
                                         <span>Ubah</span>
                                     </button>
                                     <button class="dropdown-item" type="button" data-toggle="modal"
-                                        data-target="#hapusDesa-{{ $desa->id }}">
+                                        data-target="#hapuslokasi-{{ $lokasi->id }}">
                                         <i class="fe fe-trash fe-16"></i>
                                         <span>Hapus</span>
                                     </button>
@@ -101,42 +100,46 @@
                         </tr>
 
                         {{-- Modal Ubah --}}
-                        <div class="modal fade" id="editDesa-{{ $desa->id }}" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="editlokasi-{{ $lokasi->id }}" tabindex="-1" role="dialog"
                             aria-labelledby="defaultModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="defaultModalLabel">Ubah Data Desa - "{{
-                                            $desa->nama_desa }}"</h5>
+                                        <h5 class="modal-title" id="defaultModalLabel">Ubah Data Lokasi - "{{
+                                            $lokasi->nama_lokasi }}"</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('desa.update', $desa->id) }}" method="POST">
+                                        <form action="{{ route('lokasi.update', $lokasi->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group row">
-                                                <label for="namaDesa" class="col-sm-3 col-form-label">Nama Desa</label>
+                                                <label for="desa" class="col-sm-3 col-form-label">Desa</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="namaDesa"
-                                                        placeholder="Nama Desa" value="{{ $desa->nama_desa }}"
-                                                        name="nama_desa" required>
+                                                    <select name="desa" class="form-control" id="desa" required>
+                                                        <option value="{{ $lokasi->desa->nama_desa }}">{{
+                                                            $lokasi->desa->nama_desa }}</option>
+                                                        @foreach ($desas as $desa)
+                                                        <option value="{{ $desa->id }}">{{ $desa->nama_desa }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="alamatDesa" class="col-sm-3 col-form-label">Alamat
-                                                    Desa</label>
+                                                <label for="lokasi" class="col-sm-3 col-form-label">Lokasi</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="alamatDesa"
-                                                        placeholder="Alamat Desa" value="{{ $desa->alamat_desa }}"
-                                                        name="alamat_desa" required>
+                                                    <input type="text" class="form-control" id="lokasi"
+                                                        placeholder="Lokasi" name="nama_lokasi"
+                                                        value="{{ $lokasi->nama_lokasi }}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4 mb-2 float-right">
                                                 <button type="button" class="btn mx-2 btn-secondary"
                                                     data-dismiss="modal">Tidak</button>
-                                                <button type="submit" class="btn btn-warning">Ubah Data Desa</button>
+                                                <button type="submit" class="btn btn-warning">Ubah Data
+                                                    lokasi</button>
                                             </div>
                                         </form>
                                     </div>
@@ -147,24 +150,24 @@
                         {{-- End Modal Ubah--}}
 
                         {{-- Modal Hapus --}}
-                        <div class="modal fade" id="hapusDesa-{{ $desa->id }}" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="hapuslokasi-{{ $lokasi->id }}" tabindex="-1" role="dialog"
                             aria-labelledby="defaultModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="defaultModalLabel">Hapus Data Desa</h5>
+                                        <h5 class="modal-title" id="defaultModalLabel">Hapus Data Lokasi</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('desa.destroy', $desa->id) }}" method="POST">
+                                        <form action="{{ route('lokasi.destroy', $lokasi->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <div class="form-group row">
                                                 <span class="h3 form-control text-center mx-2 text-warning">!!! Yakin
                                                     ingin hapus
-                                                    desa - "{{ $desa->nama_desa }}" !!!</span>
+                                                    lokasi - "{{ $lokasi->nama_lokasi }}" !!!</span>
                                             </div>
                                             <div class="form-group mt-4 mb-2 float-right">
                                                 <button type="button" class="btn mx-2 btn-secondary"

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Desa;
 use App\Models\Jadwal;
+use App\Models\Jalur;
 use App\Models\JenisSampah;
+use App\Models\Kenderaan;
+use App\Models\Kendraan;
+use App\Models\Lokasi;
 use App\Models\Sampah;
 use Illuminate\Http\Request;
 
@@ -16,7 +20,18 @@ class DashboardController extends Controller
         $jenisCount = JenisSampah::count();
         $sampahCount = Sampah::count();
         $jadwalCount = Jadwal::count();
-        return view('dashboard.p3b3k.dashboard', compact('desaCount', 'jenisCount', 'sampahCount', 'jadwalCount'));
+        $kendraanCount = Kenderaan::count();
+        $jalurCount = Jalur::count();
+        $lokasiCount = Lokasi::count();
+        return view('dashboard.p3b3k.dashboard', compact(
+            'desaCount',
+            'jenisCount',
+            'sampahCount',
+            'jadwalCount',
+            'kendraanCount',
+            'jalurCount',
+            'lokasiCount',
+        ));
     }
 
     public function desa()

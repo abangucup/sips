@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Desa extends Model
+class Jalur extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'kode', 'nama_desa', 'alamat_desa'
+        'nama_jalur',
     ];
 
-    public function lokasi()
+    public function kenderaan()
     {
-        return $this->hasMany(Lokasi::class);
+        return $this->hasMany(Kenderaan::class);
     }
 }

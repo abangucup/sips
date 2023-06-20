@@ -5,7 +5,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\JalurController;
 use App\Http\Controllers\JenisSampahController;
+use App\Http\Controllers\KenderaanController;
+use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\SampahController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,8 +39,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:p3b3k'], 'prefix' => 'p3b3k'], function () {
         Route::get('/dashboard', [DashboardController::class, 'p3b3k'])->name('dashboard.p3b3k');
         Route::resource('/desa', DesaController::class);
-        Route::resource('/jenis', JenisSampahController::class);
-        Route::resource('/sampah', SampahController::class);
+        Route::resource('/jalur', JalurController::class);
+        Route::resource('/kenderaan', KenderaanController::class);
+        Route::resource('/lokasi', LokasiController::class);
+        // Route::resource('/jenis', JenisSampahController::class);
+        // Route::resource('/sampah', SampahController::class);
         Route::resource('/jadwal', JadwalController::class);
     });
 

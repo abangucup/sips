@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('jalurs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kenderaan_id')->constrained();
-            $table->foreignId('hari_id')->constrained();
-            $table->foreignId('lokasi_id')->constrained();
+            $table->string('nama_jalur');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('jalurs');
     }
 };

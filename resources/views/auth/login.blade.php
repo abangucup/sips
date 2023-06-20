@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputRole">Password</label>
+                            <label for="inputRole">Role</label>
                             <select name="role" id="inputRole" class="form-control form-control-lg">
                                 <option value="p3b3k">P3B3K</option>
                                 <option value="desa">Desa</option>
