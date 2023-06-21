@@ -10,15 +10,71 @@
     </div>
     <div class="col-auto">
         <div class="form-group">
-            <a href="{{ route('desa.create') }}" class="h5 btn btn-primary">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahJadwal">
                 <i class="fe fe-plus-circle fe-8"></i>
-                <span class="web-only">Tambah Jadwal Pengangkutan</span>
-            </a>
+                <span class="web-only">Tambah Jadwal</span>
+            </button>
         </div>
     </div>
 </div>
+
+{{-- Modal Tambah --}}
+<div class="modal fade" id="tambahJadwal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="defaultModalLabel">Tambah Data Jadwal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('jadwal.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group row">
+                        <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
+                        <div class="col-sm-9">
+                            <select name="kenderaan" class="form-control" id="kenderaan" required>
+                                @foreach ($kenderaans as $kenderaan)
+                                <option value="{{ $kenderaan->id }}">{{ $kenderaan->nama_kenderaan. ' '.
+                                    $kenderaan->nomor_polisi.' (Sopir '.$kenderaan->nama_sopir.' )' }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="hari" class="col-sm-3 col-form-label">Hari</label>
+                        <div class="col-sm-9">
+                            <select name="hari[]" class="form-control select2-multi" id="hari" required>
+                                @foreach ($haris as $hari)
+                                <option value="{{ $hari->id }}">{{ $hari->nama_hari }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lokasi" class="col-sm-3 col-form-label">Lokasi / Tempat Pengangkutan</label>
+                        <div class="col-sm-9">
+                            <select name="lokasi[]" class="form-control select2-multi" id="lokasi" required>
+                                @foreach ($lokasis as $lokasi)
+                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_lokasi }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-2 float-right">
+                        <button type="submit" class="btn btn-primary">Tambah Lokasi</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{-- End Modal --}}
+
 <div class="row my-4">
-    <!-- Small table -->
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body">
@@ -26,35 +82,57 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Sopir</th>
-                            <th>Jenis Mobil</th>
+                            <th>Nama Kenderaan</th>
                             <th>Nomor Polisi</th>
-                            <th>Tanggal</th>
-                            <th>Jalur</th>
+                            <th>Nama Sopir</th>
+                            <th>Hari</th>
+                            <th>Lokasi / Tempat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
                         @foreach ($jadwals as $jadwal)
+                        @if ($loop->first || $jadwal->kenderaan_id !== $prevKenderaanId)
                         <tr>
-                            {{-- <td>{{ $loop->iteration }}</td>
-                            <td>{{ $desa->kode }}</td>
-                            <td>{{ $desa->nama_desa }}</td>
-                            <td>{{ $desa->alamat_desa }}</td>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $jadwal->kenderaan->nama_kenderaan }}</td>
+                            <td>{{ $jadwal->kenderaan->nomor_polisi }}</td>
+                            <td>{{ $jadwal->kenderaan->nama_sopir }}</td>
                             <td>
-                                <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Edit</a>
-                                    <a class="dropdown-item" href="#">Remove</a>
-                                    <a class="dropdown-item" href="#">Assign</a>
-                                </div>
-                            </td> --}}
+                                <ul>
+                                    @php
+                                    $prevHariId = null;
+                                    @endphp
+                                    @foreach ($jadwals->where('kenderaan_id', $jadwal->kenderaan_id) as $jadwalHari)
+                                    @if ($prevHariId !== $jadwalHari->hari_id)
+                                    <li>{{ $jadwalHari->hari->nama_hari }}</li>
+                                    <ul>
+                                        @foreach ($jadwals->where('kenderaan_id',
+                                        $jadwal->kenderaan_id)->where('hari_id', $jadwalHari->hari_id) as $jadwalLokasi)
+                                        <li>{{ $jadwalLokasi->lokasi->nama_lokasi }}</li>
+                                        @endforeach
+                                    </ul>
+                                    @endif
+                                    @php
+                                    $prevHariId = $jadwalHari->hari_id;
+                                    @endphp
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td>Aksi</td>
                         </tr>
+                        @endif
+                        @php
+                        $prevKenderaanId = $jadwal->kenderaan_id;
+                        @endphp
                         @endforeach
                     </tbody>
                 </table>
+
+
             </div>
         </div>
     </div>

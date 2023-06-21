@@ -8,8 +8,10 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JalurController;
 use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\KenderaanController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\SampahController;
+use App\Http\Controllers\TarifController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,12 +41,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:p3b3k'], 'prefix' => 'p3b3k'], function () {
         Route::get('/dashboard', [DashboardController::class, 'p3b3k'])->name('dashboard.p3b3k');
         Route::resource('/desa', DesaController::class);
+        Route::resource('/sampah', SampahController::class);
+        Route::resource('/tarif', TarifController::class);
         Route::resource('/jalur', JalurController::class);
         Route::resource('/kenderaan', KenderaanController::class);
         Route::resource('/lokasi', LokasiController::class);
-        // Route::resource('/jenis', JenisSampahController::class);
-        // Route::resource('/sampah', SampahController::class);
+        Route::resource('/jenis', JenisSampahController::class);
         Route::resource('/jadwal', JadwalController::class);
+        Route::get('/laporan/pengangkutan', [LaporanController::class, 'index'])->name('laporan.index');
+        Route::get('/laporan/pengangkutan/cetak', [LaporanController::class, 'cetakLaporan'])->name('laporan.cetak');
     });
 
     Route::group(['middleware' => ['role:desa'], 'prefix' => 'desa'], function () {
