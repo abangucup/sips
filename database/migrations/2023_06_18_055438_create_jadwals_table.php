@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('kenderaan_id')->constrained()->onDelete('cascade');
+            $table->foreignId('kenderaan_id')->constrained()->onDelete('cascade');
             // $table->foreignId('hari_id')->constrained();
             // $table->foreignId('lokasi_id')->constrained();
-            $table->string('nama_sopir');
+            // $table->string('nama_sopir');
+            // $table->string('nomor_polisi');
             $table->string('jenis');
-            $table->string('nomor_polisi');
             $table->string('hari_pelayanan');
             $table->string('jalur');
             $table->foreignId('desa_id')->constrained();

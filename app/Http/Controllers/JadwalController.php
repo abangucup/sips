@@ -18,17 +18,19 @@ class JadwalController extends Controller
         // $lokasis = Lokasi::all();
         // $kenderaans = Kenderaan::all();
         // $haris = Hari::all();
+        $kenderaans = Kenderaan::all();
         $desas = Desa::all();
         $jadwals = Jadwal::latest()->get();
-        return view('dashboard.p3b3k.jadwal.index', compact('jadwals', 'desas'));
+        return view('dashboard.p3b3k.jadwal.index', compact('jadwals', 'desas', 'kenderaans'));
     }
 
     public function store(Request $request)
     {
         $validasi = Validator::make($request->all(), [
-            'nama_sopir' => 'required',
+            // 'nama_sopir' => 'required',
+            // 'nomor_polisi' => 'required',
+            'kenderaan' => 'required',
             'jenis' => 'required',
-            'nomor_polisi' => 'required',
             'hari_pelayanan' => 'required',
             'jalur' => 'required',
             'desa' => 'required'
@@ -40,8 +42,9 @@ class JadwalController extends Controller
         }
 
         $jadwal = new Jadwal();
-        $jadwal->nama_sopir = $request->nama_sopir;
-        $jadwal->nomor_polisi = $request->nomor_polisi;
+        // $jadwal->nama_sopir = $request->nama_sopir;
+        // $jadwal->nomor_polisi = $request->nomor_polisi;
+        $jadwal->kenderaan_id = $request->kenderaan;
         $jadwal->jenis = $request->jenis;
         $jadwal->hari_pelayanan = $request->hari_pelayanan;
         $jadwal->jalur = $request->jalur;
@@ -55,9 +58,10 @@ class JadwalController extends Controller
     public function update(Request $request, Jadwal $jadwal)
     {
         $validasi = Validator::make($request->all(), [
-            'nama_sopir' => 'required',
+            // 'nama_sopir' => 'required',
+            // 'nomor_polisi' => 'required',
+            'kenderaan' => 'required',
             'jenis' => 'required',
-            'nomor_polisi' => 'required',
             'hari_pelayanan' => 'required',
             'jalur' => 'required',
             'desa' => 'required'
@@ -69,9 +73,10 @@ class JadwalController extends Controller
         }
 
         $jadwal->update([
-            'nama_sopir' => $request->nama_sopir,
+            // 'nama_sopir' => $request->nama_sopir,
+            // 'nomor_polisi' => $request->nomor_polisi,
+            'kenderaan_id' => $request->kenderaan,
             'jenis' => $request->jenis,
-            'nomor_polisi' => $request->nomor_polisi,
             'hari_pelayanan' => $request->hari_pelayanan,
             'jalur' => $request->jalur,
             'desa_id' => $request->desa

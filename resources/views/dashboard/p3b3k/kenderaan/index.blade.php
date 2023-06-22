@@ -32,7 +32,7 @@
             <div class="modal-body">
                 <form action="{{ route('kenderaan.store') }}" method="POST">
                     @csrf
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="jalur" class="col-sm-3 col-form-label">Jalur</label>
                         <div class="col-sm-9">
                             <select name="jalur" class="form-control" id="jalur" required>
@@ -41,7 +41,7 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <label for="namaKenderaan" class="col-sm-3 col-form-label">Nama Kenderaan</label>
                         <div class="col-sm-9">
@@ -83,7 +83,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Jalur</th>
+                            {{-- <th>Jalur</th> --}}
                             <th>Kode Kenderaan</th>
                             <th>Nama kenderaan</th>
                             <th>Nomor Polisi</th>
@@ -95,7 +95,7 @@
                         @foreach ($kenderaans as $kenderaan)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $kenderaan->jalur->nama_jalur }}</td>
+                            {{-- <td>{{ $kenderaan->jalur->nama_jalur }}</td> --}}
                             <td>{{ $kenderaan->kode_kenderaan }}</td>
                             <td>{{ $kenderaan->nama_kenderaan }}</td>
                             <td>{{ $kenderaan->nomor_polisi }}</td>
@@ -135,7 +135,7 @@
                                         <form action="{{ route('kenderaan.update', $kenderaan->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
-                                            <div class="form-group row">
+                                            {{-- <div class="form-group row">
                                                 <label for="jalur" class="col-sm-3 col-form-label">Jalur</label>
                                                 <div class="col-sm-9">
                                                     <select name="jalur" class="form-control" id="jalur" required>
@@ -147,7 +147,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group row">
                                                 <label for="namaKenderaan" class="col-sm-3 col-form-label">Nama
                                                     Kenderaan</label>

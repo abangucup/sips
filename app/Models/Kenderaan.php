@@ -10,18 +10,12 @@ class Kenderaan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'jalur_id',
         'kode_kenderaan',
         'nama_kenderaan',
         'nomor_polisi',
         'nama_sopir',
         'gambar_kenderaan'
     ];
-
-    public function jalur()
-    {
-        return $this->belongsTo(Jalur::class);
-    }
 
     public function jadwal()
     {

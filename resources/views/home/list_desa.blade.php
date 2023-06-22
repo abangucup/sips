@@ -29,7 +29,7 @@
                 @foreach ($desas as $desa)
                 <div class="col-md-4">
                     <div class="post-item p-2 mb-4 shadow">
-                        <div class="post-item-wrap shadow-0">
+                        <div class="post-item-wrap">
                             <div class="post">
                                 <a href="detail/doc-21-peraturan">
                                     <img alt="" src="{{ asset('dashboard/asset/desa.svg') }}" />
@@ -41,7 +41,8 @@
                                 </h2>
                                 <p>{{ $desa->alamat_desa }}</p>
                                 <span class="post-meta-comments text-success">
-                                    <a href="#" class="text-warning item-link">Selengkapnya
+                                    <a href="{{ route('detail_desa', $desa->id) }}"
+                                        class="text-warning item-link">Selengkapnya
                                         <i class="fa fa-arrow-right"></i></a>
                                 </span>
                             </div>

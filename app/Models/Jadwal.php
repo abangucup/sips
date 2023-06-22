@@ -12,16 +12,17 @@ class Jadwal extends Model
     use HasFactory;
 
     protected $fillable = [
-        // 'kenderaan_id',
-        // 'hari_id',
-        // 'lokasi_id',
-        'nama_sopir',
+        'kenderaan_id',
         'jenis',
-        'nomor_polisi',
         'hari_pelayanan',
         'jalur',
-        'desa',
+        'desa_id',
     ];
+
+    public function kenderaan()
+    {
+        return $this->belongsTo(Kenderaan::class);
+    }
 
     public function desa()
     {

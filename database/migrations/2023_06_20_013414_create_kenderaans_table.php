@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('kenderaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jalur_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('jalur_id')->constrained()->onDelete('cascade');
             $table->string('kode_kenderaan')->unique();
             $table->string('nama_kenderaan');
             $table->string('nomor_polisi')->unique();

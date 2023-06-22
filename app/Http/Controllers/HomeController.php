@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Desa;
 use App\Models\Jadwal;
+use App\Models\Kenderaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,5 +25,12 @@ class HomeController extends Controller
     {
         $jadwals = Jadwal::latest()->get();
         return view('home.list_jadwal', compact('jadwals'));
+    }
+
+    public function detailDesa(Desa $desa)
+    {
+        $kenderaans = Kenderaan::latest()->get();
+        $jadwals = Jadwal::all();
+        return view('home.detail_desa', compact('jadwals', 'desa', 'kenderaans'));
     }
 }

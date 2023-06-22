@@ -49,6 +49,13 @@
                 </a>
             </li>
             <li class="nav-item w-100">
+                <a class="{{ Request::is('p3b3k/kenderaan') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('kenderaan.index') }}">
+                    <i class="fe fe-truck fe-16"></i>
+                    <span class="ml-1 item-text">Data Kenderaan</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
                 <a class="{{ Request::is('p3b3k/jadwal') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('jadwal.index') }}">
                     <i class="fe fe-calendar fe-16"></i>
@@ -95,7 +102,7 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-                <a class="{{ Request::is('p3b3k/kenderaan') ? 'text-primary' : '' }} nav-link"
+                <a class="{{ Request::is('p3b3k/laporan/pengangkutan') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('laporan.index') }}">
                     <i class="fe fe-truck fe-16"></i>
                     <span class="ml-1 item-text">Laporan Pengangkutan</span>

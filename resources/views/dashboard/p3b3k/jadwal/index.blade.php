@@ -32,12 +32,19 @@
             <div class="modal-body">
                 <form action="{{ route('jadwal.store') }}" method="POST">
                     @csrf
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="namasopir" class="col-sm-3 col-form-label">Nama Sopir</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="namasopir" name="nama_sopir" required>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor Polisi</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nomorpolisi" name="nomor_polisi" required>
+                        </div>
+                    </div> --}}
                     <div class="form-group row">
                         <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                         <div class="col-sm-9">
@@ -45,9 +52,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor Polisi</label>
+                        <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="nomorpolisi" name="nomor_polisi" required>
+                            <select name="kenderaan" id="kenderaan" class="form-control" required>
+                                @foreach ($kenderaans as $kenderaan)
+                                <option value="{{ $kenderaan->id }}">{{
+                                    $kenderaan->nama_kenderaan." ".$kenderaan->nomor_polisi." (
+                                    ".$kenderaan->nama_sopir." )"
+                                    }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -122,9 +136,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nama Kenderaan</th>
+                            <th>Nomor Polisi</th>
                             <th>Nama Sopir</th>
                             <th>Jenis Mobil</th>
-                            <th>Nomor Polisi</th>
                             <th>Hari</th>
                             <th>Jalur</th>
                             <th>Desa</th>
@@ -135,9 +150,10 @@
                         @foreach ($jadwals as $jadwal)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $jadwal->nama_sopir }}</td>
+                            <td>{{ $jadwal->kenderaan->nama_kenderaan }}</td>
+                            <td>{{ $jadwal->kenderaan->nomor_polisi }}</td>
+                            <td>{{ $jadwal->kenderaan->nama_sopir }}</td>
                             <td>{{ $jadwal->jenis }}</td>
-                            <td>{{ $jadwal->nomor_polisi }}</td>
                             <td>{{ $jadwal->hari_pelayanan }}</td>
                             <td>{{ $jadwal->jalur }}</td>
                             <td>{{ $jadwal->desa->nama_desa }}</td>
@@ -176,7 +192,7 @@
                                         <form action="{{ route('jadwal.update', $jadwal->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
-                                            <div class="form-group row">
+                                            {{-- <div class="form-group row">
                                                 <label for="namasopir" class="col-sm-3 col-form-label">Nama
                                                     Sopir</label>
                                                 <div class="col-sm-9">
@@ -184,6 +200,16 @@
                                                         value="{{ $jadwal->nama_sopir }}" name="nama_sopir" required>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row">
+                                                <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor
+                                                    Polisi</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="nomorpolisi"
+                                                        name="nomor_polisi" value="{{ $jadwal->nomor_polisi }}"
+                                                        required>
+                                                </div>
+                                            </div> --}}
                                             <div class="form-group row">
                                                 <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                                                 <div class="col-sm-9">
@@ -192,12 +218,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor
-                                                    Polisi</label>
+                                                <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="nomorpolisi"
-                                                        name="nomor_polisi" value="{{ $jadwal->nomor_polisi }}"
+                                                    <select name="kenderaan" id="kenderaan" class="form-control"
                                                         required>
+                                                        <option value="{{ $jadwal->kenderaan_id }}">{{
+                                                            $jadwal->kenderaan->nama_kenderaan }}</option>
+                                                        @foreach ($kenderaans as $kenderaan)
+                                                        <option value="{{ $kenderaan->id }}">{{
+                                                            $kenderaan->nama_kenderaan }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -274,8 +305,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
-
             </div>
         </div>
     </div>
