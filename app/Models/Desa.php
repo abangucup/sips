@@ -13,8 +13,12 @@ class Desa extends Model
         'kode', 'nama_desa', 'alamat_desa'
     ];
 
-    public function lokasi()
+    // public function lokasi()
+    // {
+    //     return $this->hasMany(Lokasi::class);
+    // }
+    public function jadwal()
     {
-        return $this->hasMany(Lokasi::class);
+        return $this->hasMany(Jadwal::class);
     }
 }

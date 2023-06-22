@@ -44,20 +44,27 @@
             <li class="nav-item w-100">
                 <a class="{{ Request::is('p3b3k/tarif') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('tarif.index') }}">
-                    <i class="fe fe-trash-2 fe-16"></i>
+                    <i class="fe fe-dollar-sign fe-16"></i>
                     <span class="ml-1 item-text">Data Tarif Sampah</span>
                 </a>
             </li>
             <li class="nav-item w-100">
+                <a class="{{ Request::is('p3b3k/jadwal') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('jadwal.index') }}">
+                    <i class="fe fe-calendar fe-16"></i>
+                    <span class="ml-1 item-text">Data Jadwal</span>
+                </a>
+            </li>
+            {{-- <li class="nav-item w-100">
                 <a class="{{ Request::is('p3b3k/jalur') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('jalur.index') }}">
                     <i class="fe fe-move fe-16"></i>
                     <span class="ml-1 item-text">Data Jalur</span>
                 </a>
-            </li>
+            </li> --}}
 
         </ul>
-        <p class="text-muted nav-heading mt-4 mb-1">
+        {{-- <p class="text-muted nav-heading mt-4 mb-1">
             <span>Data Transaksi</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
@@ -82,7 +89,7 @@
                     <span class="ml-1 item-text">Data Jadwal</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Laporan</span>
         </p>

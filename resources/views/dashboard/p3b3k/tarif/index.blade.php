@@ -89,7 +89,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $tarif->sumber_sampah }}</td>
                             <td>{{ $tarif->kategori }}</td>
-                            <td>{{ $tarif->tarif }}</td>
+                            <td>{{ 'Rp '.$tarif->tarif }}</td>
                             <td>
                                 <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
