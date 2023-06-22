@@ -11,7 +11,8 @@ class DesaController extends Controller
 {
     public function index()
     {
-        $desas = Desa::latest()->withCount('lokasi')->get();
+        // $desas = Desa::latest()->withCount('lokasi')->get();
+        $desas = Desa::latest()->get();
         return view('dashboard.p3b3k.desa.index', compact('desas'));
     }
 

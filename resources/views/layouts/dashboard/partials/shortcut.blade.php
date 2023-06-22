@@ -20,6 +20,15 @@
                         </a>
                     </div>
                     <div class="col-6 text-center">
+                        <a href="{{ route('sampah.index') }}" class="nav-link">
+                            <div
+                                class="squircle {{ Request::is('*/sampah') ? 'bg-success' : 'bg-primary' }} justify-content-center">
+                                <i class="fe fe-trash fe-32 align-self-center text-white"></i>
+                            </div>
+                            <p class="{{ Request::is('p3b3k/sampah') ? 'text-success' : '' }}">Data Sampah</p>
+                        </a>
+                    </div>
+                    {{-- <div class="col-6 text-center">
                         <a href="{{ route('jalur.index') }}" class="nav-link">
                             <div
                                 class="squircle {{ Request::is('*/jalur') ? 'bg-success' : 'bg-primary' }} justify-content-center">
@@ -27,9 +36,9 @@
                             </div>
                             <p class="{{ Request::is('p3b3k/jalur') ? 'text-success' : '' }}">Data Jalur</p>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
-                <div class="row align-items-center">
+                {{-- <div class="row align-items-center">
                     <div class="col-6 text-center">
                         <a href="{{ route('lokasi.index') }}" class="nav-link">
                             <div
@@ -48,8 +57,17 @@
                             <p class="{{ Request::is('p3b3k/kenderaan') ? 'text-success' : '' }}">Kenderaan</p>
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="row align-items-center">
+                    <div class="col-6 text-center">
+                        <a href="{{ route('tarif.index') }}" class="nav-link">
+                            <div
+                                class="squircle {{ Request::is('*/tarif') ? 'bg-success' : 'bg-primary' }} justify-content-center">
+                                <i class="fe fe-dollar-sign fe-32 align-self-center text-white"></i>
+                            </div>
+                            <p class="{{ Request::is('p3b3k/tarif') ? 'text-success' : '' }}">Data Tarif</p>
+                        </a>
+                    </div>
                     <div class="col-6 text-center">
                         <a href="{{ route('jadwal.index') }}" class="nav-link">
                             <div
