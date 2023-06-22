@@ -29,7 +29,7 @@
             <div class="post-item p-2 mb-4 shadow">
                 <div class="post-item-wrap">
                     <div class="post-item-description">
-                        @foreach ($desa->jadwal->unique('jenis') as $jalurKenderaan)
+                        @forelse ($desa->jadwal->unique('jenis') as $jalurKenderaan)
                         <h2 class="text-center">{{ "Jalur Pelayanan Pengangkutan Sampah ".$jalurKenderaan->jenis }}</h2>
                         <ol>
                             @foreach ($desa->kenderaan->where('nama_kenderaan',
@@ -43,60 +43,14 @@
                             </ul>
                             @endforeach
                         </ol>
-                        @endforeach
-                    </div>
-                    {{-- <div class="post-item-description">
-                        @foreach ($kenderaan as $item)
-
-                        @endforeach --}}
-                        {{-- @foreach ($desa->jadwal->groupBy('kenderaan_id') as $groupJadwal)
-                        <h2 class="text-center">Jalur Pelayanan Pengangkutan Sampah {{ $groupJadwal[0]->jenis }}</h2>
-                        <ol> --}}
-                            {{-- <li>{{"Jalur ". $jadwal->jenis . " ".$jadwal->nomor_polisi." (
-                                ".$jadwal->nama_sopir." )" }}
-                                <ul>
-                                    <li>{{ $jadwal->hari_pelayanan. " : ". $jadwal->jalur }}</li>
-                                </ul>
-                            </li> --}}
-                            {{-- @foreach ($groupJadwal as $jadwal)
-                            <li>
-                                Jalur {{ $jadwal->jenis }} {{ $jadwal->nomor_polisi }} ({{ $jadwal->nama_sopir }})
-                                <ul>
-                                    <li>{{ $jadwal->hari_pelayanan }}: {{ $jadwal->jalur }}</li>
-                                </ul>
-                            </li>
-                            @endforeach
-                        </ol>
-                        @endforeach --}}
-                        {{-- @foreach ($desa->jadwal as $jadwal)
-                        <ol>
-                            {{ $jadwal->kenderaan->nomor_polisi." : ".$jadwal->kenderaan->nama_sopir }}
-                        </ol>
-                        @endforeach --}}
-                        {{-- @foreach ($desa->kenderaan->unique('id') as $kenderaan)
-                        <h2>JALUR MOBIL DUMPTRUCK {{ $kenderaan->nama_kenderaan }} (sopir {{ $kenderaan->nama_sopir }})
-                        </h2>
-
-                        @endforeach --}}
-
-
-                        {{-- @foreach($desa->kenderaan->unique('id') as $kenderaan)
-                        <h2>JALUR MOBIL DUMPTRUCK {{ $kenderaan->nama_kenderaan }} (sopir {{ $kenderaan->nama_sopir
-                            }})
-                        </h2>
-                        <ul>
-                            @foreach($kenderaan->jadwal as $jadwal)
-                            <li>
-                                <strong>{{ $jadwal->hari_pelayanan }}:</strong>
-                                {{ $jadwal->jalur }}
-                            </li>
-                            @endforeach
-                        </ul>
-                        @endforeach --}}
+                        @empty
+                        <h2 class="text-center">Belum Terdapat Jadwal</h2>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 

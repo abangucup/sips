@@ -39,4 +39,36 @@
         </div>
     </div>
 </section>
+
+<section id="page-content" class="sidebar-right">
+    <div class="container">
+        <div id="blog" class="post-thumbnails">
+            <!-- Post item-->
+            <h3 class="text-center">Tarif Pengangkutan Sampah</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table datatables" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Sumber Sampah</th>
+                                <th>Kategori</th>
+                                <th>Tarif / Biaya</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tarifs as $tarif)
+                            <tr>
+                                <td>{{ $tarif->sumber_sampah }}</td>
+                                <td>{{ $tarif->kategori }}</td>
+                                <td>{{ $tarif->tarif }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

@@ -223,10 +223,15 @@
                                                     <select name="kenderaan" id="kenderaan" class="form-control"
                                                         required>
                                                         <option value="{{ $jadwal->kenderaan_id }}">{{
-                                                            $jadwal->kenderaan->nama_kenderaan }}</option>
+                                                            $jadwal->kenderaan->nama_kenderaan."
+                                                            ".$jadwal->kenderaan->nomor_polisi." (
+                                                            ".$jadwal->kenderaan->nama_sopir." )"
+                                                            }}</option>
                                                         @foreach ($kenderaans as $kenderaan)
                                                         <option value="{{ $kenderaan->id }}">{{
-                                                            $kenderaan->nama_kenderaan }}</option>
+                                                            $kenderaan->nama_kenderaan." ".$kenderaan->nomor_polisi." (
+                                                            ".$kenderaan->nama_sopir." )"
+                                                            }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

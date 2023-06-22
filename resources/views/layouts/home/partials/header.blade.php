@@ -24,10 +24,22 @@
                             <li><a href="{{ route('list_desa') }}"
                                     class="{{ Request::is('list-desa') ? 'bg-primary' : '' }}">Desa</a>
                             </li>
+                            <li><a href="{{ route('list_tarif') }}"
+                                    class="{{ Request::is('list-tarif') ? 'bg-primary' : '' }}">Tarif</a>
+                            </li>
                             <li class="mr-sm-4 pb-4"><a href="{{ route('list_jadwal') }}"
                                     class="{{ Request::is('list-jadwal') ? 'bg-primary' : '' }}">Jadwal</a>
                             </li>
+                            @guest
                             <li class="ml-sm-5"><a href="{{ route('login') }}" class="btn btn-primary">Masuk</a></li>
+                            @endguest
+                            @auth
+                            <li class="ml-sm-5"><a
+                                    href="{{ auth()->user()->role == 'p3b3k' ? route('dashboard.p3b3k') : (auth()->user()->role == 'desa' ? route('dashboard.desa') : route('dashboard.pelanggan') ) }}"
+                                    class="btn btn-warning">Dashboard</a></li>
+                            <li class="ml-sm-5"><a href="{{ route('logout') }}" class="btn btn-danger">Logout</a></li>
+                            @endauth
+
                         </ul>
                     </nav>
                 </div>
