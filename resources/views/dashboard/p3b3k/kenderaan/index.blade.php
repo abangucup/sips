@@ -32,16 +32,13 @@
             <div class="modal-body">
                 <form action="{{ route('kenderaan.store') }}" method="POST">
                     @csrf
-                    {{-- <div class="form-group row">
-                        <label for="jalur" class="col-sm-3 col-form-label">Jalur</label>
+                    <div class="form-group row">
+                        <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                         <div class="col-sm-9">
-                            <select name="jalur" class="form-control" id="jalur" required>
-                                @foreach ($jalurs as $jalur)
-                                <option value="{{ $jalur->id }}">{{ $jalur->nama_jalur }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" class="form-control" id="jenis" name="jenis" required
+                                placeholder="DUMTRUCK / PICKUP / ARMOL">
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="form-group row">
                         <label for="namaKenderaan" class="col-sm-3 col-form-label">Nama Kenderaan</label>
                         <div class="col-sm-9">
@@ -83,7 +80,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            {{-- <th>Jalur</th> --}}
+                            <th>Jenis</th>
                             <th>Kode Kenderaan</th>
                             <th>Nama kenderaan</th>
                             <th>Nomor Polisi</th>
@@ -95,7 +92,7 @@
                         @foreach ($kenderaans as $kenderaan)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            {{-- <td>{{ $kenderaan->jalur->nama_jalur }}</td> --}}
+                            <td>{{ $kenderaan->jenis }}</td>
                             <td>{{ $kenderaan->kode_kenderaan }}</td>
                             <td>{{ $kenderaan->nama_kenderaan }}</td>
                             <td>{{ $kenderaan->nomor_polisi }}</td>
@@ -135,19 +132,14 @@
                                         <form action="{{ route('kenderaan.update', $kenderaan->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
-                                            {{-- <div class="form-group row">
-                                                <label for="jalur" class="col-sm-3 col-form-label">Jalur</label>
+                                            <div class="form-group row">
+                                                <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                                                 <div class="col-sm-9">
-                                                    <select name="jalur" class="form-control" id="jalur" required>
-                                                        <option value="{{ $kenderaan->jalur_id }}">{{
-                                                            $kenderaan->jalur->nama_jalur }}</option>
-                                                        @foreach ($jalurs as $jalur)
-                                                        <option value="{{ $jalur->id }}">{{ $jalur->nama_jalur }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
+                                                    <input type="text" class="form-control" id="jenis" name="jenis"
+                                                        value="{{ $kenderaan->jenis }}" required
+                                                        placeholder="DUMTRUCK / PICKUP / ARMOL">
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                             <div class="form-group row">
                                                 <label for="namaKenderaan" class="col-sm-3 col-form-label">Nama
                                                     Kenderaan</label>

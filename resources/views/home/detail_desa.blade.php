@@ -32,8 +32,8 @@
                         @forelse ($desa->jadwal->unique('jenis') as $jalurKenderaan)
                         <h2 class="text-center">{{ "Jalur Pelayanan Pengangkutan Sampah ".$jalurKenderaan->jenis }}</h2>
                         <ol>
-                            @foreach ($desa->kenderaan->where('nama_kenderaan',
-                            $jalurKenderaan->kenderaan->nama_kenderaan)->unique('nama_sopir') as $kenderaan)
+                            @foreach ($desa->kenderaan->where('jenis',
+                            $jalurKenderaan->kenderaan->jenis)->unique('nama_sopir') as $kenderaan)
                             <li>{{ "Jalur ".$kenderaan->nama_kenderaan." ".$kenderaan->nomor_polisi." ( Sopir
                                 ".$kenderaan->nama_sopir." )" }} </li>
                             <ul style="list-style: '- ">

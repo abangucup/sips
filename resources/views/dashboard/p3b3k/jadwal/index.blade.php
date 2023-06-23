@@ -48,7 +48,13 @@
                     <div class="form-group row">
                         <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="jenis" name="jenis" required>
+                            {{-- <input type="text" class="form-control" id="jenis" name="jenis" required> --}}
+                            <select name="jenis" id="jenis" class="form-control" required>
+                                @foreach ($kenderaans->unique('jenis') as $kenderaan)
+                                <option value="{{ $kenderaan->jenis }}">{{$kenderaan->jenis}}
+                                </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -213,8 +219,15 @@
                                             <div class="form-group row">
                                                 <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="jenis" name="jenis"
-                                                        value="{{ $jadwal->jenis }}" required>
+                                                    {{-- <input type="text" class="form-control" id="jenis" name="jenis"
+                                                        value="{{ $jadwal->jenis }}" required> --}}
+                                                    <select name="jenis" id="jenis" class="form-control" required>
+                                                        <option value="{{ $jadwal->jenis }}">{{$jadwal->jenis}}</option>
+                                                        @foreach ($kenderaans->unique('jenis') as $kenderaan)
+                                                        <option value="{{ $kenderaan->jenis }}">{{$kenderaan->jenis}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

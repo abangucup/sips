@@ -10,6 +10,7 @@ class Kenderaan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'jenis',
         'kode_kenderaan',
         'nama_kenderaan',
         'nomor_polisi',

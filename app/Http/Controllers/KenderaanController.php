@@ -20,7 +20,7 @@ class KenderaanController extends Controller
     public function store(Request $request)
     {
         $validasi = Validator::make($request->all(), [
-            // 'jalur' => 'required',
+            'jenis' => 'required',
             'nama_kenderaan' => 'required',
             'nomor_polisi' => 'required',
             'nama_sopir' => 'required',
@@ -33,7 +33,7 @@ class KenderaanController extends Controller
         }
 
         $kenderaan = new Kenderaan();
-        // $kenderaan->jalur_id = $request->jalur;
+        $kenderaan->jenis = $request->jenis;
         $kenderaan->kode_kenderaan = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
         $kenderaan->nama_kenderaan = $request->nama_kenderaan;
         $kenderaan->nomor_polisi = $request->nomor_polisi;
@@ -47,7 +47,7 @@ class KenderaanController extends Controller
     public function update(Request $request, Kenderaan $kenderaan)
     {
         $validasi = Validator::make($request->all(), [
-            // 'jalur' => 'required',
+            'jenis' => 'required',
             'nama_kenderaan' => 'required',
             'nomor_polisi' => 'required',
             'nama_sopir' => 'required',
@@ -60,7 +60,7 @@ class KenderaanController extends Controller
         }
 
         $kenderaan->update([
-            // 'jalur_id' => $request->jalur,
+            'jenis' => $request->jenis,
             'nama_kenderaan' => $request->nama_kenderaan,
             'nomor_polisi' => $request->nomor_polisi,
             'nama_sopir' => $request->nama_sopir,
