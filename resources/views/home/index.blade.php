@@ -73,7 +73,7 @@
             <div class="col-lg-4 border p-3">
                 <div class="icon-box effect large light">
                     <div class="icon"> <a href="index.html#"><i class="fa fa-expand"></i></a> </div>
-                    <h3 class="mb-0 mt-4">{{ $capaian->sampah_terkelola }} Ton / Tahun</h3>
+                    <h3 class="mb-0 mt-4">{{ $capaian->sampah_terkelola ?? 0}} Ton / Tahun</h3>
                     <p>Sampah Terkelola</p>
                 </div>
             </div>
