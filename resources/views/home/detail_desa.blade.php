@@ -11,9 +11,9 @@
         </div>
         <div class="breadcrumb mt-2">
             <ul>
-                <li><a href="{{ route('home') }}">Beranda</a></li>
+                <li class="textc-primary"><a href="{{ route('home') }}">Beranda</a></li>
                 <li>>></li>
-                <li><a href="{{ route('list_desa') }}">Desa</a></li>
+                <li class="textc-primary"><a href="{{ route('list_desa') }}">Desa</a></li>
                 <li>>></li>
                 <li class="active text-capitalize">
                     <span class="h5">{{ $desa->nama_desa }}</span>

@@ -90,6 +90,13 @@
                     <span class="ml-1 item-text">Data Jadwal</span>
                 </a>
             </li>
+            <li class="nav-item w-100">
+                <a class="{{ Request::is('p3b3k/capaian') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('capaian.index') }}">
+                    <i class="fe fe-move fe-16"></i>
+                    <span class="ml-1 item-text">Data Capaian</span>
+                </a>
+            </li>
         </ul>
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Laporan</span>

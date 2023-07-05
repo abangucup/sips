@@ -10,7 +10,7 @@
         </div>
         <div class="breadcrumb mt-2">
             <ul>
-                <li><a href="{{ route('home') }}">Beranda</a></li>
+                <li class="textc-primary"><a href="{{ route('home') }}">Beranda</a></li>
                 <li>>></li>
                 <li class="active text-capitalize">
                     <span class="h5">Tarif</span>
@@ -38,9 +38,10 @@
                         <tbody>
                             @foreach ($tarifs as $tarif)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $tarif->sumber_sampah }}</td>
                                 <td>{{ $tarif->kategori }}</td>
-                                <td>{{ $tarif->tarif }}</td>
+                                <td>Rp. {{ $tarif->tarif }}</td>
                             </tr>
                             @endforeach
                         </tbody>

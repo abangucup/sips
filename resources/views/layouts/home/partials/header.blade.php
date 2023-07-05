@@ -22,7 +22,7 @@
                                     class="{{ Request::is('/') ? 'bg-primary' : '' }}">Beranda</a>
                             </li>
                             <li><a href="{{ route('list_desa') }}"
-                                    class="{{ Request::is('list-desa') ? 'bg-primary' : '' }}">Desa</a>
+                                    class="{{ Request::is('list-desa') || Request::is('desa/*') ? 'bg-primary' : '' }}">Desa</a>
                             </li>
                             <li><a href="{{ route('list_tarif') }}"
                                     class="{{ Request::is('list-tarif') ? 'bg-primary' : '' }}">Tarif</a>

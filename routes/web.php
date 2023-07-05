@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CapaianController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/lokasi', LokasiController::class);
         Route::resource('/jenis', JenisSampahController::class);
         Route::resource('/jadwal', JadwalController::class);
+        Route::resource('/capaian', CapaianController::class);
         Route::get('/laporan/pengangkutan', [LaporanController::class, 'index'])->name('laporan.index');
         Route::get('/laporan/pengangkutan/cetak', [LaporanController::class, 'cetakLaporan'])->name('laporan.cetak');
     });

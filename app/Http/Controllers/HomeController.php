@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capaian;
 use App\Models\Desa;
 use App\Models\Jadwal;
-use App\Models\Kenderaan;
+use App\Models\Kenderaan;;
+
 use App\Models\Tarif;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $tarifs = Tarif::all();
-        return view('home.index', compact('tarifs'));
+        $capaian = Capaian::latest()->first();
+        return view('home.index', compact('capaian'));
     }
 
     public function listDesa()

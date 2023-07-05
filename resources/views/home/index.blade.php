@@ -40,32 +40,48 @@
     </div>
 </section>
 
-<section id="page-content" class="sidebar-right">
+<section class="py-5 background-grey border">
     <div class="container">
-        <div id="blog" class="post-thumbnails">
-            <!-- Post item-->
-            <h3 class="text-center">Tarif Pengangkutan Sampah</h3>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table datatables" id="dataTable">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Sumber Sampah</th>
-                                <th>Kategori</th>
-                                <th>Tarif / Biaya</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($tarifs as $tarif)
-                            <tr>
-                                <td>{{ $tarif->sumber_sampah }}</td>
-                                <td>{{ $tarif->kategori }}</td>
-                                <td>{{ $tarif->tarif }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+        <!--Icon box counter-cs -->
+        <h2 class="mb-1 text-center"><span class="textc-primary">Statistik</span></h2>
+        <br>
+        <div class="row mt-3">
+            <div class="col-sm-4 border p-3">
+                <div class="icon-box effect large light">
+                    <div class="icon"> <a href="index.html#"><i class="fa fa-list"></i></a> </div>
+                    <h3 class="mb-0 mt-4">{{ $capaian->timbulan_sampah }} Ton / Tahun</h3>
+                    <p>Timbulan Sampah</p>
+                </div>
+            </div>
+            <div class="col-sm-4 border p-3">
+                <div class="icon-box effect large light">
+                    <div class="icon"> <a href="index.html#"><i class="fa fa-database"></i></a> </div>
+                    <h3 class="mb-0 mt-4">{{ $capaian->pengurangan_sampah }} Ton / Tahun</h3>
+                    <p>Pengurangan Sampah</p>
+                </div>
+            </div>
+            <div class="col-sm-4 border p-3">
+                <div class="icon-box effect large light">
+                    <div class="icon"> <a href="index.html#"><i class="fa fa-recycle"></i></a> </div>
+                    <h3 class="mb-0 mt-4">{{ $capaian->penanganan_sampah }} Ton / Tahun</h3>
+                    <p>Penanganan Sampah</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row d-flex justify-content-center mt-2">
+            <div class="col-lg-4 border p-3">
+                <div class="icon-box effect large light">
+                    <div class="icon"> <a href="index.html#"><i class="fa fa-expand"></i></a> </div>
+                    <h3 class="mb-0 mt-4">{{ $capaian->sampah_terkelola }} Ton / Tahun</h3>
+                    <p>Sampah Terkelola</p>
+                </div>
+            </div>
+            <div class="col-lg-4 border p-3">
+                <div class="icon-box effect large light">
+                    <div class="icon"> <a href="index.html#"><i class="fa fa-compress"></i></a> </div>
+                    <h3 class="mb-0 mt-4">{{ $capaian->sampah_tidak_terkelola }} Ton / Tahun</h3>
+                    <p>Sampah Tidak Terkelola</p>
                 </div>
             </div>
         </div>
