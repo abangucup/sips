@@ -11,7 +11,9 @@ use App\Http\Controllers\JenisSampahController;
 use App\Http\Controllers\KenderaanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\SampahController;
+use App\Http\Controllers\SetoranController;
 use App\Http\Controllers\TarifController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +32,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/list-desa', [HomeController::class, 'listDesa'])->name('list_desa');
 Route::get('/list-jadwal', [HomeController::class, 'listJadwal'])->name('list_jadwal');
 Route::get('/list-tarif', [HomeController::class, 'listTarif'])->name('list_tarif');
-Route::get('/desa/{desa}', [HomeController::class, 'detailDesa'])->name('detail_desa');
+Route::get('/list-desa/{desa}', [HomeController::class, 'detailDesa'])->name('detail_desa');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -57,14 +59,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => ['role:desa'], 'prefix' => 'desa'], function () {
         Route::get('/dashboard', [DashboardController::class, 'desa'])->name('dashboard.desa');
+        Route::resource('/pelanggan', PelangganController::class);
+        Route::resource('/setoran', SetoranController::class);
     });
 
     Route::group(['middleware' => ['role:pelanggan'], 'prefix' => 'pelanggan'], function () {
         Route::get('/dashboard', [DashboardController::class, 'pelanggan'])->name('dashboard.pelanggan');
-    });
-
-    Route::group(['middleware' => ['role:petugas'], 'prefix' => 'petugas'], function () {
-        Route::get('/dashboard', [DashboardController::class, 'petugas'])->name('dashboard.petugas');
+        Route::resource('/setoran', SetoranController::class);
     });
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

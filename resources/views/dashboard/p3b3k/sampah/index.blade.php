@@ -98,7 +98,7 @@
                             <td>{{ $sampah->nama_sampah }}</td>
                             <td>{{ $sampah->kategori }}</td>
                             <td>{{ $sampah->tahun }}</td>
-                            <td>{{ $sampah->jumlah }}</td>
+                            <td>{{ $sampah->jumlah }} Ton</td>
                             <td>
                                 <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

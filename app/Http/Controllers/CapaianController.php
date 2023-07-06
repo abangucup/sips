@@ -22,6 +22,7 @@ class CapaianController extends Controller
             'penanganan_sampah' => 'required',
             'sampah_terkelola' => 'required',
             'sampah_tidak_terkelola' => 'required',
+            'tahun' => 'required',
         ]);
 
         $capaian = new Capaian();
@@ -30,6 +31,7 @@ class CapaianController extends Controller
         $capaian->penanganan_sampah = $request->penanganan_sampah;
         $capaian->sampah_terkelola = $request->sampah_terkelola;
         $capaian->sampah_tidak_terkelola = $request->sampah_tidak_terkelola;
+        $capaian->tahun = $request->tahun;
         $capaian->save();
 
         Alert::toast('Berhasil simpan capaian', 'success');

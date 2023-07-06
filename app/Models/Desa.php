@@ -22,4 +22,9 @@ class Desa extends Model
     {
         return $this->belongsToMany(Kenderaan::class, Jadwal::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

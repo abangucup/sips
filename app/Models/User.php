@@ -18,10 +18,22 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'desa_id',
+        'pelanggan_id',
         'username',
         'password',
         'role',
     ];
+
+    public function desa()
+    {
+        return $this->belongsTo(Desa::class);
+    }
+
+    public function pelanggan()
+    {
+        return $this->belongsTo(Pelanggan::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

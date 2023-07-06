@@ -65,7 +65,6 @@
                                 <option value="p3b3k">P3B3K</option>
                                 <option value="desa">Desa</option>
                                 <option value="pelanggan">Pelanggan</option>
-                                <option value="petugas">Petugas</option>
                             </select>
                         </div>
                         <button class="btn btn-lg btn-outline-success btn-block mb-3" type="submit">Masuk</button>

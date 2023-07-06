@@ -32,31 +32,6 @@
             <div class="modal-body">
                 <form action="{{ route('jadwal.store') }}" method="POST">
                     @csrf
-                    {{-- <div class="form-group row">
-                        <label for="namasopir" class="col-sm-3 col-form-label">Nama Sopir</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="namasopir" name="nama_sopir" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor Polisi</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="nomorpolisi" name="nomor_polisi" required>
-                        </div>
-                    </div> --}}
-                    <div class="form-group row">
-                        <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
-                        <div class="col-sm-9">
-                            {{-- <input type="text" class="form-control" id="jenis" name="jenis" required> --}}
-                            <select name="jenis" id="jenis" class="form-control" required>
-                                @foreach ($kenderaans->unique('jenis') as $kenderaan)
-                                <option value="{{ $kenderaan->jenis }}">{{$kenderaan->jenis}}
-                                </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
                         <div class="col-sm-9">
@@ -92,37 +67,6 @@
                             </select>
                         </div>
                     </div>
-                    {{-- <div class="form-group row">
-                        <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
-                        <div class="col-sm-9">
-                            <select name="kenderaan" class="form-control" id="kenderaan" required>
-                                @foreach ($kenderaans as $kenderaan)
-                                <option value="{{ $kenderaan->id }}">{{ $kenderaan->nama_kenderaan. ' '.
-                                    $kenderaan->nomor_polisi.' (Sopir '.$kenderaan->nama_sopir.' )' }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="hari" class="col-sm-3 col-form-label">Hari</label>
-                        <div class="col-sm-9">
-                            <select name="hari[]" class="form-control select2-multi" id="hari" required>
-                                @foreach ($haris as $hari)
-                                <option value="{{ $hari->id }}">{{ $hari->nama_hari }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="form-group row">
-                        <label for="lokasi" class="col-sm-3 col-form-label">Lokasi / Tempat Pengangkutan</label>
-                        <div class="col-sm-9">
-                            <select name="lokasi[]" class="form-control select2-multi" id="lokasi" required>
-                                @foreach ($lokasis as $lokasi)
-                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_lokasi }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div> --}}
                     <div class="form-group mt-4 mb-2 float-right">
                         <button type="submit" class="btn btn-primary">Tambah Lokasi</button>
                     </div>
@@ -198,38 +142,6 @@
                                         <form action="{{ route('jadwal.update', $jadwal->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
-                                            {{-- <div class="form-group row">
-                                                <label for="namasopir" class="col-sm-3 col-form-label">Nama
-                                                    Sopir</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="namasopir"
-                                                        value="{{ $jadwal->nama_sopir }}" name="nama_sopir" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="nomorpolisi" class="col-sm-3 col-form-label">Nomor
-                                                    Polisi</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="nomorpolisi"
-                                                        name="nomor_polisi" value="{{ $jadwal->nomor_polisi }}"
-                                                        required>
-                                                </div>
-                                            </div> --}}
-                                            <div class="form-group row">
-                                                <label for="jenis" class="col-sm-3 col-form-label">Jenis</label>
-                                                <div class="col-sm-9">
-                                                    {{-- <input type="text" class="form-control" id="jenis" name="jenis"
-                                                        value="{{ $jadwal->jenis }}" required> --}}
-                                                    <select name="jenis" id="jenis" class="form-control" required>
-                                                        <option value="{{ $jadwal->jenis }}">{{$jadwal->jenis}}</option>
-                                                        @foreach ($kenderaans->unique('jenis') as $kenderaan)
-                                                        <option value="{{ $kenderaan->jenis }}">{{$kenderaan->jenis}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="form-group row">
                                                 <label for="kenderaan" class="col-sm-3 col-form-label">Kenderaan</label>
                                                 <div class="col-sm-9">

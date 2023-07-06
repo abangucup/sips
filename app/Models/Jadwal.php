@@ -29,18 +29,8 @@ class Jadwal extends Model
         return $this->belongsTo(Desa::class);
     }
 
-    // public function kenderaan()
-    // {
-    //     return $this->belongsTo(Kenderaan::class);
-    // }
-
-    // public function hari()
-    // {
-    //     return $this->belongsTo(Hari::class);
-    // }
-
-    // public function lokasi()
-    // {
-    //     return $this->belongsTo(Lokasi::class);
-    // }
+    public function setoran()
+    {
+        return $this->hasMany(Setoran::class);
+    }
 }

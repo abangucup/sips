@@ -18,6 +18,7 @@ class AuthController extends Controller
         $kredensial = $this->validate($request, [
             'username' => 'required',
             'password' => 'required',
+            'role' => 'required',
         ]);
 
 
@@ -27,10 +28,8 @@ class AuthController extends Controller
                 return redirect()->route('dashboard.p3b3k');
             } elseif ($role == "desa") {
                 return redirect()->route('dashboard.desa');
-            } elseif ($role == "pelanggan") {
-                return redirect()->route('dashboard.pelanggan');
             } else {
-                return redirect()->route('dashboard.petugas');
+                return redirect()->route('dashboard.pelanggan');
             }
             Alert::toast('success', 'Berhasil Masuk');
         }

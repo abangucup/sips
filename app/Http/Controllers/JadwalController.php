@@ -15,9 +15,6 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        // $lokasis = Lokasi::all();
-        // $kenderaans = Kenderaan::all();
-        // $haris = Hari::all();
         $kenderaans = Kenderaan::all();
         $desas = Desa::all();
         $jadwals = Jadwal::latest()->get();
@@ -27,10 +24,7 @@ class JadwalController extends Controller
     public function store(Request $request)
     {
         $validasi = Validator::make($request->all(), [
-            // 'nama_sopir' => 'required',
-            // 'nomor_polisi' => 'required',
             'kenderaan' => 'required',
-            'jenis' => 'required',
             'hari_pelayanan' => 'required',
             'jalur' => 'required',
             'desa' => 'required'
@@ -40,12 +34,11 @@ class JadwalController extends Controller
             Alert::toast('Gagal tambah data', 'error');
             return back();
         }
+        $kenderaan = Kenderaan::findOrFail($request->kenderaan);
 
         $jadwal = new Jadwal();
-        // $jadwal->nama_sopir = $request->nama_sopir;
-        // $jadwal->nomor_polisi = $request->nomor_polisi;
-        $jadwal->kenderaan_id = $request->kenderaan;
-        $jadwal->jenis = $request->jenis;
+        $jadwal->kenderaan_id = $kenderaan->id;
+        $jadwal->jenis = $kenderaan->jenis;
         $jadwal->hari_pelayanan = $request->hari_pelayanan;
         $jadwal->jalur = $request->jalur;
         $jadwal->desa_id = $request->desa;

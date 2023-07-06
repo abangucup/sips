@@ -46,6 +46,20 @@
                                 name="alamat_desa" required>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="username" class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="username" placeholder="Username" name="username"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="password" placeholder="Password" name="password"
+                                required>
+                        </div>
+                    </div>
                     <div class="form-group mt-4 mb-2 float-right">
                         <button type="submit" class="btn btn-primary">Tambah Desa</button>
                     </div>
@@ -69,7 +83,6 @@
                             <th>Kode</th>
                             <th>Nama Desa</th>
                             <th>Alamat Desa</th>
-                            <th>Total Lokasi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -80,7 +93,6 @@
                             <td>{{ $desa->kode }}</td>
                             <td>{{ $desa->nama_desa }}</td>
                             <td>{{ $desa->alamat_desa }}</td>
-                            <td>{{ $desa->lokasi_count }}</td>
                             <td>
                                 <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,6 +145,22 @@
                                                         name="alamat_desa" required>
                                                 </div>
                                             </div>
+                                            @if ($desa->user == null)
+                                            <div class="form-group row">
+                                                <label for="username" class="col-sm-3 col-form-label">Username</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="username"
+                                                        placeholder="Username" name="username" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="password"
+                                                        placeholder="Password" name="password" required>
+                                                </div>
+                                            </div>
+                                            @endif
                                             <div class="form-group mt-4 mb-2 float-right">
                                                 <button type="button" class="btn mx-2 btn-secondary"
                                                     data-dismiss="modal">Tidak</button>

@@ -28,7 +28,7 @@
                         @if (Request::is('*/dashboard'))
                         <div class="row align-items-center mb-2">
                             <div class="col">
-                                <h2 class="h4 page-title">Welcome {{ $username }}</h2>
+                                <h2 class="h4 page-title">Welcome {{ $user->username }}</h2>
                             </div>
 
                         </div>

@@ -14,7 +14,7 @@
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
                 <a class="{{ Request::is('*/dashboard') ? 'text-primary' : '' }} nav-link"
-                    href="{{ route('dashboard.p3b3k') }}">
+                    href="{{ $user->role == 'p3b3k' ? route('dashboard.p3b3k') : ($user->role == 'desa' ? route('dashboard.desa') : route('dashboard.pelanggan')) }}">
                     <i class="fe fe-home fe-16"></i>
                     <span class="ml-1 item-text">Dashboard</span>
                 </a>
@@ -22,7 +22,7 @@
         </ul>
 
         {{-- MENU P3B3K --}}
-        @if ($username == 'p3b3k')
+        @if ($user->role == 'p3b3k')
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Data Master</span>
         </p>
@@ -55,34 +55,11 @@
                     <span class="ml-1 item-text">Data Kenderaan</span>
                 </a>
             </li>
-
-            {{-- <li class="nav-item w-100">
-                <a class="{{ Request::is('p3b3k/jalur') ? 'text-primary' : '' }} nav-link"
-                    href="{{ route('jalur.index') }}">
-                    <i class="fe fe-move fe-16"></i>
-                    <span class="ml-1 item-text">Data Jalur</span>
-                </a>
-            </li> --}}
-
         </ul>
         <p class="text-muted nav-heading mt-4 mb-1">
             <span>Data Transaksi</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
-            {{-- <li class="nav-item w-100">
-                <a class="{{ Request::is('p3b3k/kenderaan') ? 'text-primary' : '' }} nav-link"
-                    href="{{ route('kenderaan.index') }}">
-                    <i class="fe fe-truck fe-16"></i>
-                    <span class="ml-1 item-text">Data Kenderaan</span>
-                </a>
-            </li>
-            <li class="nav-item w-100">
-                <a class="{{ Request::is('p3b3k/lokasi') ? 'text-primary' : '' }} nav-link"
-                    href="{{ route('lokasi.index') }}">
-                    <i class="fe fe-map-pin fe-16"></i>
-                    <span class="ml-1 item-text">Data Lokasi</span>
-                </a>
-            </li> --}}
             <li class="nav-item w-100">
                 <a class="{{ Request::is('p3b3k/jadwal') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('jadwal.index') }}">
@@ -112,6 +89,42 @@
         </ul>
         @endif
 
+        @if ($user->role == 'desa')
+        <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Data Master</span>
+        </p>
+        <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+                <a class="{{ Request::is('desa/pelanggan') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('pelanggan.index') }}">
+                    <i class="fe fe-map fe-16"></i>
+                    <span class="ml-1 item-text">Data Pelanggan</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="{{ Request::is('desa/setoran') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('setoran.index') }}">
+                    <i class="fe fe-trash fe-16"></i>
+                    <span class="ml-1 item-text">Data Setoran Sampah</span>
+                </a>
+            </li>
+        </ul>
+        @endif
+
+        @if ($user->role == 'pelanggan')
+        <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Data Transaksi</span>
+        </p>
+        <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+                <a class="{{ Request::is('pelanggan/setoran') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('setoran.index') }}">
+                    <i class="fe fe-trash fe-16"></i>
+                    <span class="ml-1 item-text">Data Setoran Sampah</span>
+                </a>
+            </li>
+        </ul>
+        @endif
 
     </nav>
 </aside>

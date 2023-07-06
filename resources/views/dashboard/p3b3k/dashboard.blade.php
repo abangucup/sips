@@ -27,7 +27,7 @@
     </div>
 
     {{-- Jadwal --}}
-    {{-- <div class="col-lg-3">
+    <div class="col-lg-4">
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -43,10 +43,10 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- Kendaraan --}}
-    {{-- <div class="col-lg-3">
+    <div class="col-lg-4">
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -62,64 +62,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-
-    {{-- Jalur --}}
-    {{-- <div class="col-lg-3">
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col-3 text-center">
-                        <span class="circle circle-lg bg-light">
-                            <i class="fe fe-32 fe-move text-info mb-0"></i>
-                        </span>
-                    </div>
-                    <div class="col pl-3">
-                        <p class="h5 mb-3 text-info">Data Jalur</p>
-                        <span class="h3 mb-0 text-info">{{ $jalurCount ?? 0 }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- Lokasi --}}
-    {{-- <div class="col-lg-3">
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col-3 text-center">
-                        <span class="circle circle-lg bg-light">
-                            <i class="fe fe-32 fe-map-pin text-white mb-0"></i>
-                        </span>
-                    </div>
-                    <div class="col pl-3">
-                        <p class="h5 mb-3 text-white">Data Lokasi</p>
-                        <span class="h3 mb-0 text-white">{{ $lokasiCOunt ?? 0 }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- Jenis --}}
-    {{-- <div class="col-lg-3">
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col-3 text-center">
-                        <span class="circle circle-lg bg-light">
-                            <i class="fe fe-32 fe-trash-2 text-primary mb-0"></i>
-                        </span>
-                    </div>
-                    <div class="col pl-3">
-                        <p class="h5 mb-3 text-primary">Data Jenis Sampah</p>
-                        <span class="h3 mb-0 text-primary">{{ $jenisCount ?? 0 }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+    </div>
 
     {{-- Sampah --}}
     <div class="col-lg-4">
@@ -150,12 +93,12 @@
                 <div class="row align-items-center">
                     <div class="col-3 text-center">
                         <span class="circle circle-lg bg-light">
-                            <i class="fe fe-32 fe-dollar-sign text-danger mb-0"></i>
+                            <i class="fe fe-32 fe-dollar-sign text-warning mb-0"></i>
                         </span>
                     </div>
                     <div class="col pl-3">
-                        <p class="h5 mb-3 text-danger">Data Tarif Sampah</p>
-                        <span class="h3 mb-0 text-danger">{{ $tarifCount ?? 0 }}</span>
+                        <p class="h5 mb-3 text-warning">Data Tarif Sampah</p>
+                        <span class="h3 mb-0 text-warning">{{ $tarifCount ?? 0 }}</span>
                     </div>
                     <div class="col pl-3">
                         <img src="{{ asset('dashboard/asset/tarif.svg') }}" style="width: 100px;" alt="">

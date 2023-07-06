@@ -208,6 +208,11 @@
                     <input type="number" class="form-control" id="sampahTidakTerkelola" placeholder="Masukan Angka"
                         name="sampah_tidak_terkelola" required>
                 </div>
+                <div class="form-group">
+                    <label for="tahun">Tahun</label>
+                    <input type="number" class="form-control" id="tahun" placeholder="Masukan Angka" name="tahun"
+                        required>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

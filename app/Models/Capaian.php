@@ -14,6 +14,7 @@ class Capaian extends Model
         'pengurangan_sampah',
         'penanganan_sampah',
         'sampah_terkelola',
-        'sampah_tidak_terkelola'
+        'sampah_tidak_terkelola',
+        'tahun',
     ];
 }

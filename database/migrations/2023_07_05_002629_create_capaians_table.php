@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('penanganan_sampah');
             $table->integer('sampah_terkelola');
             $table->integer('sampah_tidak_terkelola');
+            $table->string('tahun');
             $table->timestamps();
         });
     }

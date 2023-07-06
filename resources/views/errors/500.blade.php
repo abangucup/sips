@@ -16,8 +16,8 @@
             <div class="mx-auto text-center">
                 <h1 class="display-1 m-0 font-weight-bolder text-muted" style="font-size:80px;">500</h1>
                 <h1 class="mb-1 text-muted font-weight-bold">OOPS!</h1>
-                <h6 class="mb-3 text-muted">Something went wrong here.</h6>
-                <a href="./index.html" class="btn btn-lg btn-primary px-5">Back to Dashboard</a>
+                <h6 class="mb-3 text-muted">OH SORRY !! ADA SESUATU AM.</h6>
+                <a href="{{ route('home') }}" class="btn btn-lg btn-primary px-5">BALE ULANG JO</a>
             </div>
         </div>
     </div>

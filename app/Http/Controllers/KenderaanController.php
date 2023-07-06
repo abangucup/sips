@@ -13,8 +13,7 @@ class KenderaanController extends Controller
     public function index()
     {
         $kenderaans = Kenderaan::latest()->get();
-        $jalurs = Jalur::all();
-        return view('dashboard.p3b3k.kenderaan.index', compact('kenderaans', 'jalurs'));
+        return view('dashboard.p3b3k.kenderaan.index', compact('kenderaans'));
     }
 
     public function store(Request $request)

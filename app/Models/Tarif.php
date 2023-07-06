@@ -14,4 +14,9 @@ class Tarif extends Model
         'kategori',
         'tarif'
     ];
+
+    public function setoran()
+    {
+        return $this->hasMany(Setoran::class);
+    }
 }

@@ -27,8 +27,8 @@ class ViewServiceProvider extends ServiceProvider
         View::composer([
             'layouts.dashboard.app',
         ], function ($view) {
-            $username = auth()->user()->username;
-            $view->with('username', $username);
+            $user = auth()->user();
+            $view->with('user', $user);
         });
     }
 }

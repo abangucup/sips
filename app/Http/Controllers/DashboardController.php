@@ -9,7 +9,9 @@ use App\Models\JenisSampah;
 use App\Models\Kenderaan;
 use App\Models\Kendraan;
 use App\Models\Lokasi;
+use App\Models\Pelanggan;
 use App\Models\Sampah;
+use App\Models\Setoran;
 use App\Models\Tarif;
 use Illuminate\Http\Request;
 
@@ -20,32 +22,27 @@ class DashboardController extends Controller
         $desaCount = Desa::count();
         $sampahCount = Sampah::count();
         $tarifCount = Tarif::count();
-        // $jenisCount = JenisSampah::count();
-        // $jadwalCount = Jadwal::count();
-        // $kendraanCount = Kenderaan::count();
-        // $jalurCount = Jalur::count();
-        // $lokasiCount = Lokasi::count();
+        $jadwalCount = Jadwal::count();
+        $kendraanCount = Kenderaan::count();
         return view('dashboard.p3b3k.dashboard', compact(
             'desaCount',
             'sampahCount',
             'tarifCount',
-            // 'jenisCount',
-            // 'jadwalCount',
-            // 'kendraanCount',
-            // 'jalurCount',
-            // 'lokasiCount',
+            'jadwalCount',
+            'kendraanCount',
         ));
     }
 
     public function desa()
     {
+        $countPelanggan = Pelanggan::count();
+        $countSetoran = Setoran::count();
+        return view('dashboard.desa.dashboard', compact('countPelanggan',  'countSetoran'));
     }
 
     public function pelanggan()
     {
-    }
-
-    public function petugas()
-    {
+        $countSetoran = Setoran::count();
+        return view('dashboard.pelanggan.dashboard', compact('countSetoran'));
     }
 }
