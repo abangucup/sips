@@ -102,7 +102,7 @@
                 </a>
             </li>
             <li class="nav-item w-100">
-                <a class="{{ Request::is('desa/setoran') ? 'text-primary' : '' }} nav-link"
+                <a class="{{ Request::is('setoran') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('setoran.index') }}">
                     <i class="fe fe-trash fe-16"></i>
                     <span class="ml-1 item-text">Data Setoran Sampah</span>
@@ -117,7 +117,7 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-                <a class="{{ Request::is('pelanggan/setoran') ? 'text-primary' : '' }} nav-link"
+                <a class="{{ Request::is('setoran') ? 'text-primary' : '' }} nav-link"
                     href="{{ route('setoran.index') }}">
                     <i class="fe fe-trash fe-16"></i>
                     <span class="ml-1 item-text">Data Setoran Sampah</span>

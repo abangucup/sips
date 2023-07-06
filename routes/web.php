@@ -60,13 +60,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:desa'], 'prefix' => 'desa'], function () {
         Route::get('/dashboard', [DashboardController::class, 'desa'])->name('dashboard.desa');
         Route::resource('/pelanggan', PelangganController::class);
-        Route::resource('/setoran', SetoranController::class);
     });
 
     Route::group(['middleware' => ['role:pelanggan'], 'prefix' => 'pelanggan'], function () {
         Route::get('/dashboard', [DashboardController::class, 'pelanggan'])->name('dashboard.pelanggan');
-        Route::resource('/setoran', SetoranController::class);
     });
+    Route::resource('/setoran', SetoranController::class);
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

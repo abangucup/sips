@@ -16,7 +16,7 @@
     <h4 class="card-title">Tambah pelanggan</h4>
 </div>
 <div class="card-body">
-    <form action="{{ route('pelanggan.store') }}" method="POST">
+    <form action="{{ route('setoran.store') }}" method="POST">
         @csrf
         <div class="row justify-content-center">
             <div class="col-md-6">

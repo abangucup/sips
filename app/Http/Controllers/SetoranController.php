@@ -24,6 +24,7 @@ class SetoranController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $this->validate($request, [
             'pelanggan_id' => 'required',
             'tanggal_setoran' => 'required',
