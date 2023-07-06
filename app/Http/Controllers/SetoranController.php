@@ -36,6 +36,7 @@ class SetoranController extends Controller
         $setoran->tanggal_setoran = $request->tanggal_setoran;
         $setoran->jadwal_id = $request->jadwal_id;
         $setoran->tarif_id = $request->tarif_id;
+        $setoran->save();
 
         Alert::toast('Berhasil tambah data setoran', 'success');
         return back();
