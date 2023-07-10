@@ -19,4 +19,9 @@ class Tarif extends Model
     {
         return $this->hasMany(Setoran::class);
     }
+
+    public function pelanggans()
+    {
+        return $this->hasMany(Pelanggan::all());
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Capaian;
 use App\Models\Jadwal;
 use App\Models\Jalur;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -12,16 +13,16 @@ class LaporanController extends Controller
 {
     public function retribusi()
     {
-        return view('dashboard.p3b3k.laporan.laporan_retribusi');
+        $pelanggans = Pelanggan::all();
+        return view('dashboard.p3b3k.laporan.laporan_retribusi', compact('pelanggans'));
     }
 
     public function cetakRetribusi()
     {
         // $jadwals = Jadwal::all();
-        // $jalurs = Jalur::all();
-        // return view('dashboard.p3b3k.laporan.cetak', compact('jadwals'));
-        $pdf = Pdf::loadview('dashboard.p3b3k.laporan.cetak_retribusi', compact('jadwals', 'jalurs'))->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        $pelanggans = Pelanggan::all();
+        $pdf = Pdf::loadview('dashboard.p3b3k.laporan.cetak_retribusi', compact('pelanggans'))->setPaper('A4', 'landscape');
+        return $pdf->stream('laporan_retribusi');
     }
 
     public function capaian()

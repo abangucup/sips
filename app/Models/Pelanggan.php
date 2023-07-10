@@ -10,10 +10,16 @@ class Pelanggan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'desa_id',
         'nama_pelanggan',
         'nomor_hp',
         'alamat',
     ];
+
+    public function desa()
+    {
+        return $this->belongsTo(Desa::class);
+    }
 
     public function user()
     {
@@ -23,5 +29,10 @@ class Pelanggan extends Model
     public function setoran()
     {
         return $this->hasMany(Setoran::class);
+    }
+
+    public function tarif()
+    {
+        return $this->belongsTo(Tarif::class);
     }
 }
