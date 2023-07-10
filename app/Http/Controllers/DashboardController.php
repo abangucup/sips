@@ -35,7 +35,7 @@ class DashboardController extends Controller
 
     public function desa()
     {
-        $countPelanggan = Pelanggan::count();
+        $countPelanggan = Pelanggan::where('desa_id', auth()->user()->desa_id)->count();
         $countSetoran = Setoran::count();
         return view('dashboard.desa.dashboard', compact('countPelanggan',  'countSetoran'));
     }

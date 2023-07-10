@@ -15,8 +15,8 @@ class SetoranController extends Controller
     public function index()
     {
         $setorans = Setoran::all();
-        $pelanggans = Pelanggan::all();
-        $jadwals = Jadwal::all();
+        $pelanggans = Pelanggan::where('desa_id', auth()->user()->desa_id)->get();
+        $jadwals = Jadwal::where('desa_id', auth()->user()->desa_id)->get();
         $tarifs = Tarif::all();
         $sampahs = Sampah::all();
         return view('dashboard.desa.setoran.index', compact('setorans', 'pelanggans', 'jadwals', 'tarifs', 'sampahs'));

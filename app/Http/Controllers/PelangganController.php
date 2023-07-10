@@ -14,7 +14,7 @@ class PelangganController extends Controller
 {
     public function index()
     {
-        $pelanggans = Pelanggan::all();
+        $pelanggans = Pelanggan::where('desa_id', auth()->user()->desa_id)->get();
         $tarifs = Tarif::all();
         return view('dashboard.desa.pelanggan.index', compact('pelanggans', 'tarifs'));
     }
