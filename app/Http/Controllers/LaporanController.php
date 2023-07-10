@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Capaian;
 use App\Models\Jadwal;
 use App\Models\Jalur;
-// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -35,6 +34,7 @@ class LaporanController extends Controller
     {
         $capaians = Capaian::all();
         $pdf = Pdf::loadview('dashboard.p3b3k.laporan.cetak_capaian', compact('capaians'))->setPaper('A4', 'potrait');
+
         return $pdf->stream('laporan_capaian');
     }
 }

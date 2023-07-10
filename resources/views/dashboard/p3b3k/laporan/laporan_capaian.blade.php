@@ -11,7 +11,7 @@
     </div>
     <div class="col-auto">
         <div class="form-group">
-            <a class="btn btn-primary" href="{{ route('cetak.capaian') }}">
+            <a class="btn btn-primary" href="{{ route('cetak.capaian') }}" target="_blank">
                 <i class="fe fe-plus-circle fe-8"></i>
                 <span class="web-only">Cetak Laporan</span>
             </a>
