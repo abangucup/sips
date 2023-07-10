@@ -11,7 +11,7 @@ class Pelanggan extends Model
 
     protected $fillable = [
         'desa_id',
-        'tarif_id',
+        // 'tarif_id',
         'nama_pelanggan',
         'nomor_hp',
         'alamat',
@@ -29,11 +29,11 @@ class Pelanggan extends Model
 
     public function setoran()
     {
-        return $this->hasMany(Setoran::class);
+        return $this->hasOne(Setoran::class);
     }
 
-    public function tarif()
-    {
-        return $this->belongsTo(Tarif::class);
-    }
+    // public function tarif()
+    // {
+    //     return $this->belongsTo(Tarif::class);
+    // }
 }

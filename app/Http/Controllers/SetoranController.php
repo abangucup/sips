@@ -18,8 +18,8 @@ class SetoranController extends Controller
         $pelanggans = Pelanggan::where('desa_id', auth()->user()->desa_id)->get();
         $jadwals = Jadwal::where('desa_id', auth()->user()->desa_id)->get();
         $tarifs = Tarif::all();
-        $sampahs = Sampah::all();
-        return view('dashboard.desa.setoran.index', compact('setorans', 'pelanggans', 'jadwals', 'tarifs', 'sampahs'));
+        // $sampahs = Sampah::all();
+        return view('dashboard.desa.setoran.index', compact('setorans', 'pelanggans', 'jadwals', 'tarifs'));
     }
 
     public function store(Request $request)

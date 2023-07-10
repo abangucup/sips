@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('desa_id')->nullable()->constrained();
-            $table->foreignId('tarif_id')->nullable()->constrained();
+            // $table->foreignId('tarif_id')->nullable()->constrained();
             $table->string('nama_pelanggan');
             $table->string('nomor_hp');
             $table->string('alamat')->nullable();

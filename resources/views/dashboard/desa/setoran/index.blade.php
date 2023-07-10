@@ -33,29 +33,22 @@
                     <input type="date" class="form-control" id="tanggal" placeholder="Tanggal" name="tanggal_setoran"
                         required>
                 </div>
+            </div>
+            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="nomorHP">Jalur</label>
+                    <label for="jalur">Jalur</label>
                     <select name="jadwal_id" class="form-control">
                         @foreach ($jadwals as $jadwal)
                         <option value="{{ $jadwal->id }}">{{ $jadwal->jalur }}</option>
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="nomorHP">Nama Sampah</label>
-                    <select name="sampah_id" class="form-control">
-                        @foreach ($sampahs as $sampah)
-                        <option value="{{ $sampah->id }}">{{ $sampah->nama_sampah }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="nomorHP">Jenis Sampah</label>
+                    <label for="sumberSampah">Sumber Sampah</label>
                     <select name="tarif_id" class="form-control">
                         @foreach ($tarifs as $tarif)
-                        <option value="{{ $tarif->id}}">{{ $tarif->kategori." ( Rp. ".$tarif->tarif." )" }}</option>
+                        <option value="{{ $tarif->id}}">{{ $tarif->sumber_sampah." ( Rp. ".$tarif->tarif." )" }}
+                        </option>
                         @endforeach
                     </select>
                 </div>

@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="tarif">Tarif</label>
                     <select name="tarif" id="tarif" class="form-control" required>
                         <option value="">Pilih Tarif Pelanggan</option>
@@ -46,7 +46,7 @@
                             $tarif->sumber_sampah))."), Dengan Biaya / Tarif : Rp. ".$tarif->tarif }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" placeholder="Username" name="username"
@@ -74,7 +74,7 @@
                     <th>Username</th>
                     <th>Alamat</th>
                     <th>Aksi</th>
-                </tr>setoran
+                </tr>
             </thead>
             <tbody>
                 @foreach ($pelanggans as $pelanggan)
@@ -141,7 +141,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
+                                    {{-- <div class="form-group row">
                                         <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                                         <div class="col-sm-9">
                                             <select name="tarif" id="tarif" class="form-control" required>
@@ -158,7 +158,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 col-form-label">Username</label>

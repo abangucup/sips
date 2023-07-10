@@ -25,7 +25,7 @@ class PelangganController extends Controller
             'nama_pelanggan' => 'required',
             'nomor_hp' => 'required',
             'alamat' => 'required',
-            'tarif' => 'required',
+            // 'tarif' => 'required',
             'username' => 'required',
             'password' => 'required',
         ]);
@@ -33,7 +33,7 @@ class PelangganController extends Controller
 
         $pelanggan = new Pelanggan();
         $pelanggan->desa_id = $desa->id;
-        $pelanggan->tarif_id = $request->tarif;
+        // $pelanggan->tarif_id = $request->tarif;
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
         $pelanggan->nomor_hp = $request->nomor_hp;
         $pelanggan->alamat = $request->alamat;
@@ -53,7 +53,7 @@ class PelangganController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'tarif' => 'required',
+            // 'tarif' => 'required',
             'nama_pelanggan' => 'required',
             'nomor_hp' => 'required',
             'alamat' => 'required',
@@ -61,7 +61,7 @@ class PelangganController extends Controller
 
         $pelanggan = Pelanggan::findOrFail($id);
         $pelanggan->update([
-            'tarif_id' => $request->tarif,
+            // 'tarif_id' => $request->tarif,
             'nama_pelanggan' => $request->nama_pelanggan,
             'nomor_hp' => $request->nomor_hp,
             'alamat' => $request->alamat,
