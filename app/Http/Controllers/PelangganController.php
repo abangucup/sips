@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Desa;
 use App\Models\Pelanggan;
+use App\Models\Tarif;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,8 +15,8 @@ class PelangganController extends Controller
     public function index()
     {
         $pelanggans = Pelanggan::all();
-        $desas = Desa::all();
-        return view('dashboard.desa.pelanggan.index', compact('pelanggans', 'desas'));
+        $tarifs = Tarif::all();
+        return view('dashboard.desa.pelanggan.index', compact('pelanggans', 'tarifs'));
     }
 
     public function store(Request $request)
@@ -24,11 +25,15 @@ class PelangganController extends Controller
             'nama_pelanggan' => 'required',
             'nomor_hp' => 'required',
             'alamat' => 'required',
+            'tarif' => 'required',
             'username' => 'required',
             'password' => 'required',
         ]);
+        $desa = Desa::where('id', auth()->user()->desa_id)->first();
 
         $pelanggan = new Pelanggan();
+        $pelanggan->desa_id = $desa->id;
+        $pelanggan->tarif_id = $request->tarif;
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
         $pelanggan->nomor_hp = $request->nomor_hp;
         $pelanggan->alamat = $request->alamat;
@@ -48,6 +53,7 @@ class PelangganController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tarif' => 'required',
             'nama_pelanggan' => 'required',
             'nomor_hp' => 'required',
             'alamat' => 'required',
@@ -55,9 +61,10 @@ class PelangganController extends Controller
 
         $pelanggan = Pelanggan::findOrFail($id);
         $pelanggan->update([
+            'tarif_id' => $request->tarif,
             'nama_pelanggan' => $request->nama_pelanggan,
             'nomor_hp' => $request->nomor_hp,
-            'alamat' => $request->nomor_hp,
+            'alamat' => $request->alamat,
         ]);
 
         if ($request->filled('username')) {

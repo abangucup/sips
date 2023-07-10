@@ -38,6 +38,16 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label for="tarif">Tarif</label>
+                    <select name="tarif" id="tarif" class="form-control" required>
+                        <option value="">Pilih Tarif Pelanggan</option>
+                        @foreach ($tarifs as $tarif)
+                        <option value="{{ $tarif->id }}">Sumber Sampah ({{ ucwords(str_replace('_', ' ',
+                            $tarif->sumber_sampah))."), Dengan Biaya / Tarif : Rp. ".$tarif->tarif }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" placeholder="Username" name="username"
                         required>
@@ -130,6 +140,26 @@
                                                 value="{{ $pelanggan->alamat }}" required>
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                                        <div class="col-sm-9">
+                                            <select name="tarif" id="tarif" class="form-control" required>
+                                                <option value="{{ $pelanggan->tarif_id}}">Sumber Sampah ({{
+                                                    ucwords(str_replace('_', ' ',
+                                                    $pelanggan->tarif->sumber_sampah))."), Dengan Biaya / Tarif :
+                                                    Rp.
+                                                    ".$pelanggan->tarif->tarif}}</option>
+                                                @foreach ($tarifs as $tarif)
+                                                <option value="{{ $tarif->id }}">Sumber Sampah ({{
+                                                    ucwords(str_replace('_', ' ',
+                                                    $tarif->sumber_sampah))."), Dengan Biaya / Tarif : Rp.
+                                                    ".$tarif->tarif }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 col-form-label">Username</label>
                                         <div class="col-sm-9">

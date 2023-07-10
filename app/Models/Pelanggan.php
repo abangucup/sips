@@ -11,6 +11,7 @@ class Pelanggan extends Model
 
     protected $fillable = [
         'desa_id',
+        'tarif_id',
         'nama_pelanggan',
         'nomor_hp',
         'alamat',

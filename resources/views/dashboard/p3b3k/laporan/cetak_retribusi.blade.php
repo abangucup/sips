@@ -59,7 +59,7 @@
                 <td>{{ $pelanggan->nama_pelanggan }}</td>
                 <td>{{ $pelanggan->desa->alamat_desa ?? 'belum ada desa'}}</td>
                 <td>{{ $pelanggan->alamat }}</td>
-                <td>{{ $pelanggan->tarif->sumber_sampah }}</td>
+                <td>{{ ucwords(str_replace('_', ' ',$pelanggan->tarif->sumber_sampah)) }}</td>
             </tr>
             @empty
             <tr>

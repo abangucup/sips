@@ -96,7 +96,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $sampah->nama_sampah }}</td>
-                            <td>{{ $sampah->kategori }}</td>
+                            <td>{{ $sampah->kategori == 'b3' ? 'Sampah Bahan Berbahaya dan Beracun (B3)' :
+                                ucwords(str_replace('_', ' ', $sampah->kategori)) }}</td>
                             <td>{{ $sampah->tahun }}</td>
                             <td>{{ $sampah->jumlah }} Ton</td>
                             <td>
