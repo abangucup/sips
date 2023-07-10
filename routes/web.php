@@ -53,8 +53,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/jenis', JenisSampahController::class);
         Route::resource('/jadwal', JadwalController::class);
         Route::resource('/capaian', CapaianController::class);
-        Route::get('/laporan/pengangkutan', [LaporanController::class, 'index'])->name('laporan.index');
-        Route::get('/laporan/pengangkutan/cetak', [LaporanController::class, 'cetakLaporan'])->name('laporan.cetak');
+        Route::get('/laporan/retribusi', [LaporanController::class, 'retribusi'])->name('laporan.retribusi');
+        Route::get('/laporan/retribusi/cetak', [LaporanController::class, 'cetakRetribusi'])->name('cetak.retribusi');
+        Route::get('/laporan/capaian', [LaporanController::class, 'capaian'])->name('laporan.capaian');
+        Route::get('/laporan/capaian/cetak', [LaporanController::class, 'cetakCapaian'])->name('cetak.capaian');
     });
 
     Route::group(['middleware' => ['role:desa'], 'prefix' => 'desa'], function () {

@@ -80,10 +80,17 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-                <a class="{{ Request::is('p3b3k/laporan/pengangkutan') ? 'text-primary' : '' }} nav-link"
-                    href="{{ route('laporan.index') }}">
+                <a class="{{ Request::is('p3b3k/laporan/retribusi') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('laporan.retribusi') }}">
                     <i class="fe fe-truck fe-16"></i>
-                    <span class="ml-1 item-text">Laporan Pengangkutan</span>
+                    <span class="ml-1 item-text">Laporan Retribusi Sampah</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="{{ Request::is('p3b3k/laporan/capaian') ? 'text-primary' : '' }} nav-link"
+                    href="{{ route('laporan.capaian') }}">
+                    <i class="fe fe-truck fe-16"></i>
+                    <span class="ml-1 item-text">Laporan Capaian</span>
                 </a>
             </li>
         </ul>

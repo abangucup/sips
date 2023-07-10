@@ -51,10 +51,7 @@ class JadwalController extends Controller
     public function update(Request $request, Jadwal $jadwal)
     {
         $validasi = Validator::make($request->all(), [
-            // 'nama_sopir' => 'required',
-            // 'nomor_polisi' => 'required',
             'kenderaan' => 'required',
-            'jenis' => 'required',
             'hari_pelayanan' => 'required',
             'jalur' => 'required',
             'desa' => 'required'
@@ -64,12 +61,11 @@ class JadwalController extends Controller
             Alert::toast('Gagal tambah data', 'error');
             return back();
         }
+        $kenderaan = Kenderaan::findOrFail($request->kenderaan);
 
         $jadwal->update([
-            // 'nama_sopir' => $request->nama_sopir,
-            // 'nomor_polisi' => $request->nomor_polisi,
             'kenderaan_id' => $request->kenderaan,
-            'jenis' => $request->jenis,
+            'jenis' => $kenderaan->jenis,
             'hari_pelayanan' => $request->hari_pelayanan,
             'jalur' => $request->jalur,
             'desa_id' => $request->desa
@@ -85,39 +81,4 @@ class JadwalController extends Controller
         Alert::toast('Berhasil hapus data jadwal', 'success');
         return back();
     }
-    // public function store(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'kenderaan' => 'required',
-    //         'hari' => 'required|array',
-    //         'lokasi' => 'required|array',
-    //     ]);
-
-    //     // Ambil data kenderaan berdasarkan ID
-    //     $kenderaan = Kenderaan::findOrFail($validatedData['kenderaan']);
-
-    //     // Looping untuk menyimpan jadwal per hari
-    //     foreach ($validatedData['hari'] as $hariId) {
-    //         // Ambil data hari berdasarkan ID
-    //         $hari = Hari::findOrFail($hariId);
-
-    //         // Ambil data lokasi berdasarkan ID yang diinput
-    //         $lokasiIds = $validatedData['lokasi'];
-
-    //         // Looping untuk menyimpan jadwal per lokasi
-    //         foreach ($lokasiIds as $lokasiId) {
-    //             // Ambil data lokasi berdasarkan ID
-    //             $lokasi = Lokasi::findOrFail($lokasiId);
-
-    //             // Buat jadwal baru
-    //             $jadwal = new Jadwal();
-    //             $jadwal->kenderaan()->associate($kenderaan);
-    //             $jadwal->hari()->associate($hari);
-    //             $jadwal->lokasi()->associate($lokasi);
-    //             $jadwal->save();
-    //         }
-    //     }
-    //     Alert::toast('Berhasil tambah data jadwal', 'success');
-    //     return back();
-    // }
 }

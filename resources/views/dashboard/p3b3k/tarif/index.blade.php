@@ -88,7 +88,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $tarif->sumber_sampah }}</td>
-                            <td>{{ $tarif->kategori }}</td>
+                            <td>{{ $tarif->kategori == 'b3' ? 'Sampah Bahan Berbahaya dan Beracun (B3)' :
+                                ucwords(str_replace('_', ' ', $tarif->kategori)) }}</td>
                             <td>{{ 'Rp '.$tarif->tarif }}</td>
                             <td>
                                 <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
