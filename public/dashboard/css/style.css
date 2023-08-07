@@ -1,0 +1,20 @@
+body {
+    min-height: 100vh;
+    overflow: auto;
+}
+
+/* Tambahkan gaya min-height pada wrapper untuk memastikan scroll jika konten melebihi ketinggian viewport */
+.wrapper {
+    min-height: 100vh;
+}
+
+/* Hapus gaya overflow-hidden pada wrapper */
+/* .wrapper { */
+/* ... */
+/* overflow: hidden; */
+/* } */
+
+/* Tambahkan gaya overflow: auto pada elemen dengan kelas row */
+.row {
+    overflow: auto;
+}

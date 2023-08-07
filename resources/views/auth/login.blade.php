@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('dashboard/css/feather.css') }}">
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/app-dark.css') }}" id="darkTheme">
+    <link rel="stylesheet" href="{{ asset('dashboard/css/style.css') }}">
+
 </head>
 
 <body class="vertical dark">
