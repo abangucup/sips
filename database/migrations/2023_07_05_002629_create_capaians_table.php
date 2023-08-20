@@ -20,6 +20,13 @@ return new class extends Migration
             $table->integer('penanganan_sampah');
             $table->integer('sampah_terkelola');
             $table->integer('sampah_tidak_terkelola');
+            $table->integer('pembatasan_timbulan');
+            $table->integer('pemanfaatan_kembali');
+            $table->integer('daur_ulang');
+            $table->integer('pemilahan');
+            $table->integer('pengangkutan');
+            $table->integer('pengolahan');
+            $table->integer('pemrosesan_akhir');
             $table->string('tahun');
             $table->timestamps();
         });

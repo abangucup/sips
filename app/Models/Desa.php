@@ -30,6 +30,6 @@ class Desa extends Model
 
     public function pelanggans()
     {
-        return $this->hasMany(Pelanggan::all());
+        return $this->hasMany(Pelanggan::class);
     }
 }

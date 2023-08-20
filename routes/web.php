@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$dashboard = 'Dashboard';
+
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/list-desa', [HomeController::class, 'listDesa'])->name('list_desa');
 Route::get('/list-jadwal', [HomeController::class, 'listJadwal'])->name('list_jadwal');

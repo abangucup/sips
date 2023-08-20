@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Desa;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DesaSeeder extends Seeder
@@ -15,10 +14,48 @@ class DesaSeeder extends Seeder
      */
     public function run()
     {
+        $alamat = 'Kec. Marisa, Kabupaten Pohuwato, Gorontalo';
         $desas = [
-            ['kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), 'nama_desa' => 'Desa 1', 'alamat_desa' => 'Jalan Desa 1'],
-            ['kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), 'nama_desa' => 'Desa 2', 'alamat_desa' => 'Jalan Desa 2'],
-            ['kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), 'nama_desa' => 'Desa 3', 'alamat_desa' => 'Jalan Desa 3'],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //1
+                'nama_desa' => 'Marisa Utara',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //2
+                'nama_desa' => 'Teratai',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //3
+                'nama_desa' => 'Pohuwato Timur',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //4
+                'nama_desa' => 'Bulangita',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //5
+                'nama_desa' => 'Palopo',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //6
+                'nama_desa' => 'Pohuwato',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //7
+                'nama_desa' => 'Botubilotahu',
+                'alamat_desa' => $alamat
+            ],
+            [
+                'kode' => str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT), //8
+                'nama_desa' => 'Marisa Selatan',
+                'alamat_desa' => $alamat
+            ],
         ];
 
         foreach ($desas as $desa) {

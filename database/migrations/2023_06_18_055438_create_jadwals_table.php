@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jenis');
             $table->string('hari_pelayanan');
             $table->string('jalur');
-            $table->foreignId('desa_id')->constrained();
+            $table->foreignId('desa_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

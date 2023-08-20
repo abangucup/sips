@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function listDesa()
     {
-        $desas = Desa::latest()->get();
+        $desas = Desa::latest()->withCount('jadwal', 'pelanggans')->get();
         return view('home.list_desa', compact('desas'));
     }
 

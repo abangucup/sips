@@ -39,7 +39,16 @@
                                 <h2>
                                     <a href="detail/doc-21-peraturan">{{ $desa->nama_desa }}</a>
                                 </h2>
-                                <p>{{ $desa->alamat_desa }}</p>
+                                <p>{{ $desa->alamat_desa }}
+                                    <br>
+                                    <span class="text-primary">Jadwal: {{ $desa->jadwal_count != 0 ?
+                                        $desa->jadwa_count : 'Belum
+                                        Ada'}}</span>
+                                    <br>
+                                    <span class="text-primary">Pelanggan: {{ $desa->pelanggans_count != 0 ?
+                                        $desa->jadwa_count : 'Belum Ada'
+                                        }}</span>
+                                </p>
                                 <span class="post-meta-comments text-success">
                                     <a href="{{ route('detail_desa', $desa->id) }}"
                                         class="text-warning item-link">Selengkapnya

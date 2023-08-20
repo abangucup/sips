@@ -26,7 +26,7 @@
             <div class="col-lg-8 col-md-8 text-left text-middle">
                 <br>
                 <p class="h4">SIPS (Sistem Informasi Pengelolaan Sampah)<span class="text-muted"> adalah
-                        aplikasi online resmi dari Balai Lingkungan Hidup (BLH) untuk mengelola sampah yang ada
+                        aplikasi online resmi dari Dinas Lingkungan Hidup (DLH) untuk mengelola sampah yang ada
                         dilingkungan sekitar
                         kita.</span></p>
                 <p class="h4">Bank Sampah<span class="text-muted"> adalah fasilitas untuk mengelola sampah
