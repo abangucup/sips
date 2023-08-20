@@ -42,11 +42,11 @@
                                 <p>{{ $desa->alamat_desa }}
                                     <br>
                                     <span class="text-primary">Jadwal: {{ $desa->jadwal_count != 0 ?
-                                        $desa->jadwa_count : 'Belum
+                                        $desa->jadwal_count : 'Belum
                                         Ada'}}</span>
                                     <br>
                                     <span class="text-primary">Pelanggan: {{ $desa->pelanggans_count != 0 ?
-                                        $desa->jadwa_count : 'Belum Ada'
+                                        $desa->pelanggans_count : 'Belum Ada'
                                         }}</span>
                                 </p>
                                 <span class="post-meta-comments text-success">
