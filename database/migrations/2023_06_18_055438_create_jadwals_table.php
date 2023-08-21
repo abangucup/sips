@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('desa_id')->constrained()->onDelete('cascade');
             $table->foreignId('kenderaan_id')->constrained()->onDelete('cascade');
             $table->string('jenis');
             $table->string('hari_pelayanan');
             $table->string('jalur');
-            $table->foreignId('desa_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
